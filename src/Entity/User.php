@@ -74,6 +74,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Email est obligatoire")
+     * @Assert\Email(message = "The email '{{ value }}' est invalide.")
      */
     private $email;
 

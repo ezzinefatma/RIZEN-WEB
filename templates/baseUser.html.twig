@@ -7,28 +7,29 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
 
         {% block stylesheets %}
-             <link rel="stylesheet" href="assetsUser/css/bootstrap.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/font-awesome.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/elegant-icons.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/plyr.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/nice-select.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/owl.carousel.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/slicknav.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/style.css" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/bootstrap.min.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/font-awesome.min.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/elegant-icons.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/plyr.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/nice-select.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/owl.carousel.min.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/slicknav.min.css')}}" type="text/css">
+             <link rel="stylesheet" href="{{ asset ('assetsUser/css/style.css')}}" type="text/css">
         {% endblock %}
 
         {% block javascripts %}
-          <script src="assetsUser/js/jquery-3.3.1.min.js"></script>
-          <script src="assetsUser/js/bootstrap.min.js"></script>
-          <script src="assetsUser/js/player.js"></script>
-          <script src="assetsUser/js/jquery.nice-select.min.js"></script>
-          <script src="assetsUser/js/mixitup.min.js"></script>
-          <script src="assetsUser/js/jquery.slicknav.js"></script>
-          <script src="assetsUser/js/owl.carousel.min.js"></script>
-          <script src="assetsUser/js/main.js"></script>
+          <script src="{{ asset ('assetsUser/js/jquery-3.3.1.min.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/bootstrap.min.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/player.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/jquery.nice-select.min.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/mixitup.min.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/jquery.slicknav.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/owl.carousel.min.js')}}"></script>
+          <script src="{{ asset ('assetsUser/js/main.js')}}"></script>
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
