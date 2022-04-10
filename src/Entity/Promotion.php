@@ -52,5 +52,58 @@ class Promotion
      */
     private $idProd;
 
+    public function getIdProm(): ?int
+    {
+        return $this->idProm;
+    }
+
+    public function getDateDebutProm(): ?string
+    {
+        return $this->dateDebutProm;
+    }
+
+    public function setDateDebutProm(string $dateDebutProm): self
+    {
+        $this->dateDebutProm = $dateDebutProm;
+
+        return $this;
+    }
+
+    public function getDateFinProm(): ?string
+    {
+        return $this->dateFinProm;
+    }
+
+    public function setDateFinProm(string $dateFinProm): self
+    {
+        $this->dateFinProm = $dateFinProm;
+
+        return $this;
+    }
+
+    public function getTauxReduction(): ?int
+    {
+        return $this->tauxReduction;
+    }
+
+    public function setTauxReduction(int $tauxReduction): self
+    {
+        $this->tauxReduction = $tauxReduction;
+
+        return $this;
+    }
+
+    public function getIdProd(): ?Produit
+    {
+        return $this->idProd;
+    }
+
+    public function setIdProd(?Produit $idProd): self
+    {
+        $this->idProd = $idProd;
+
+        return $this;
+    }
+
 
 }

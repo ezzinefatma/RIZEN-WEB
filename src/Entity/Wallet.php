@@ -13,6 +13,101 @@ use Doctrine\ORM\Mapping as ORM;
 class Wallet
 {
     /**
+     * @return int
+     */
+    public function getIdWallet(): int
+    {
+        return $this->idWallet;
+    }
+
+    /**
+     * @param int $idWallet
+     */
+    public function setIdWallet(int $idWallet): void
+    {
+        $this->idWallet = $idWallet;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSolde()
+    {
+        return $this->solde;
+    }
+
+    /**
+     * @param int $solde
+     */
+    public function setSolde($solde): void
+    {
+        $this->solde = $solde;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardNumber(): ?string
+    {
+        return $this->cardNumber;
+    }
+
+    /**
+     * @param string $cardNumber
+     */
+    public function setCardNumber(string $cardNumber): void
+    {
+        $this->cardNumber = $cardNumber;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCsc(): ?int
+    {
+        return $this->csc;
+    }
+
+    /**
+     * @param int $csc
+     */
+    public function setCsc(int $csc): void
+    {
+        $this->csc = $csc;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExpire(): ?string
+    {
+        return $this->expire;
+    }
+
+    /**
+     * @param string $expire
+     */
+    public function setExpire(string $expire): void
+    {
+        $this->expire = $expire;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdUser(): ?\User
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \User $idUser
+     */
+    public function setIdUser(\User $idUser): void
+    {
+        $this->idUser = $idUser;
+    }
+    /**
      * @var int
      *
      * @ORM\Column(name="id_wallet", type="integer", nullable=false)
@@ -33,7 +128,7 @@ class Wallet
      *
      * @ORM\Column(name="card_number", type="string", length=255, nullable=false)
      */
-    private $cardNumber;
+    private $cardNumber  ;
 
     /**
      * @var int

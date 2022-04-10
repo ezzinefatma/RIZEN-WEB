@@ -69,5 +69,82 @@ class Facture
      */
     private $idWallet;
 
+    public function getNumfac(): ?int
+    {
+        return $this->numfac;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(?int $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(?string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getPrixtot(): ?float
+    {
+        return $this->prixtot;
+    }
+
+    public function setPrixtot(?float $prixtot): self
+    {
+        $this->prixtot = $prixtot;
+
+        return $this;
+    }
+
+    public function getIdProd(): ?Produit
+    {
+        return $this->idProd;
+    }
+
+    public function setIdProd(?Produit $idProd): self
+    {
+        $this->idProd = $idProd;
+
+        return $this;
+    }
+
+    public function getIdWallet(): ?Wallet
+    {
+        return $this->idWallet;
+    }
+
+    public function setIdWallet(?Wallet $idWallet): self
+    {
+        $this->idWallet = $idWallet;
+
+        return $this;
+    }
+
 
 }

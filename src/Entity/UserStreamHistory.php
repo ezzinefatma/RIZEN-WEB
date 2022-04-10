@@ -55,5 +55,58 @@ class UserStreamHistory
      */
     private $idUser;
 
+    public function getHistoryId(): ?int
+    {
+        return $this->historyId;
+    }
+
+    public function getStreamerId(): ?int
+    {
+        return $this->streamerId;
+    }
+
+    public function setStreamerId(int $streamerId): self
+    {
+        $this->streamerId = $streamerId;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getStream(): ?Stream
+    {
+        return $this->stream;
+    }
+
+    public function setStream(?Stream $stream): self
+    {
+        $this->stream = $stream;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }
