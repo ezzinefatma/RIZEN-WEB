@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+{% extends 'baseadmin.html.twig'  %}
 
-<title>Hello CtrWalletController!</title>
+
+{% block title %}}Hello CtrWalletController!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +10,27 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/platgame/src/Controller/CtrWalletController.php'|file_link(0) }}">src/Controller/CtrWalletController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/platgame/templates/ctr_wallet/index.html.twig'|file_link(0) }}">templates/ctr_wallet/index.html.twig</a></code></li>
-    </ul>
+    <div style="display: flex;align-items: center;justify-content: center">
+        <table border="1">
+            <thead>
+            <th>id_wallet</th>
+            <th>solde</th>
+            <th>card_number</th>
+            <th>csc</th>
+            <th>expire</th>
+            </thead>
+            <body>
+            {% for wal in b %}
+                <tr>
+                    <td>{{wal.idWallet}}</td>
+                    <td>{{wal.solde}}</td>
+                    <td>{{wal.cardNumber}}</td>
+                    <td>{{wal.csc}}</td>
+                    <td>{{wal.expire}}</td>
+                </tr>
+            {% endfor %}
+            </body>
+        </table>
+    </div>
 </div>
 {% endblock %}

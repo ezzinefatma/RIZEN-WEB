@@ -12,12 +12,13 @@ use App\Entity\Wallet;
 class WalletController extends AbstractController
 {
     /**
-     * @Route("/wallet", name="app_wallet")
+     * @Route("/", name="app_wallet")
      */
     public function index(): Response
     {
+        $wal = $this->getDoctrine()->getManager()->getRepository(Wallet::class)->findAll();
         return $this->render('ctr_wallet/index.html.twig', [
-            'controller_name' => 'WalletController',
+           'b'=>$wal
         ]);
     }
 
