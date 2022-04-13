@@ -4,9 +4,13 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class ProduitType extends AbstractType
 {
@@ -23,8 +27,8 @@ class ProduitType extends AbstractType
             ->add('libelle')
             ->add('marque')
             ->add('prix')
-            ->add('descriptionProd')
-            ->add('imageProd', filetype())
+            ->add('descriptionProd' )
+            ->add('imageProd',FileType::class , array( 'data_class'=> null))
 
             ->add('disponibilite', ChoiceType::class,
                 [
