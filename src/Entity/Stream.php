@@ -80,5 +80,106 @@ class Stream
      */
     private $idUser;
 
+    public function getIdStream(): ?int
+    {
+        return $this->idStream;
+    }
+
+    public function getTitreStream(): ?string
+    {
+        return $this->titreStream;
+    }
+
+    public function setTitreStream(string $titreStream): self
+    {
+        $this->titreStream = $titreStream;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getNbrLike(): ?int
+    {
+        return $this->nbrLike;
+    }
+
+    public function setNbrLike(int $nbrLike): self
+    {
+        $this->nbrLike = $nbrLike;
+
+        return $this;
+    }
+
+    public function getNbrReport(): ?int
+    {
+        return $this->nbrReport;
+    }
+
+    public function setNbrReport(int $nbrReport): self
+    {
+        $this->nbrReport = $nbrReport;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getBackgroundPic(): ?string
+    {
+        return $this->backgroundPic;
+    }
+
+    public function setBackgroundPic(string $backgroundPic): self
+    {
+        $this->backgroundPic = $backgroundPic;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

@@ -52,5 +52,58 @@ class Publication
      */
     private $idUser;
 
+    public function getIdPub(): ?int
+    {
+        return $this->idPub;
+    }
+
+    public function getContentPub(): ?string
+    {
+        return $this->contentPub;
+    }
+
+    public function setContentPub(string $contentPub): self
+    {
+        $this->contentPub = $contentPub;
+
+        return $this;
+    }
+
+    public function getDatePub(): ?\DateTimeInterface
+    {
+        return $this->datePub;
+    }
+
+    public function setDatePub(\DateTimeInterface $datePub): self
+    {
+        $this->datePub = $datePub;
+
+        return $this;
+    }
+
+    public function getLikeNbr(): ?int
+    {
+        return $this->likeNbr;
+    }
+
+    public function setLikeNbr(int $likeNbr): self
+    {
+        $this->likeNbr = $likeNbr;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

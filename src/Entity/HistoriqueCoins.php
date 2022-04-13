@@ -59,5 +59,70 @@ class HistoriqueCoins
      */
     private $idUser;
 
+    public function getIdH(): ?int
+    {
+        return $this->idH;
+    }
+
+    public function getMontantAchat(): ?int
+    {
+        return $this->montantAchat;
+    }
+
+    public function setMontantAchat(?int $montantAchat): self
+    {
+        $this->montantAchat = $montantAchat;
+
+        return $this;
+    }
+
+    public function getTransaction(): ?int
+    {
+        return $this->transaction;
+    }
+
+    public function setTransaction(?int $transaction): self
+    {
+        $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    public function getReã§uMoney(): ?int
+    {
+        return $this->reã§uMoney;
+    }
+
+    public function setReã§uMoney(?int $reã§uMoney): self
+    {
+        $this->reã§uMoney = $reã§uMoney;
+
+        return $this;
+    }
+
+    public function getDateHystory(): ?\DateTimeInterface
+    {
+        return $this->dateHystory;
+    }
+
+    public function setDateHystory(\DateTimeInterface $dateHystory): self
+    {
+        $this->dateHystory = $dateHystory;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

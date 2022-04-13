@@ -22,16 +22,16 @@ class Promotion
     private $idProm;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_debut_prom", type="string", length=255, nullable=false)
+     * @ORM\Column(name="date_debut_prom", type="date", nullable=false)
      */
     private $dateDebutProm;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_fin_prom", type="string", length=255, nullable=false)
+     * @ORM\Column(name="date_fin_prom", type="date", nullable=false)
      */
     private $dateFinProm;
 
@@ -51,6 +51,59 @@ class Promotion
      * })
      */
     private $idProd;
+
+    public function getIdProm(): ?int
+    {
+        return $this->idProm;
+    }
+
+    public function getDateDebutProm(): ?\DateTimeInterface
+    {
+        return $this->dateDebutProm;
+    }
+
+    public function setDateDebutProm(\DateTimeInterface $dateDebutProm): self
+    {
+        $this->dateDebutProm = $dateDebutProm;
+
+        return $this;
+    }
+
+    public function getDateFinProm(): ?\DateTimeInterface
+    {
+        return $this->dateFinProm;
+    }
+
+    public function setDateFinProm(\DateTimeInterface $dateFinProm): self
+    {
+        $this->dateFinProm = $dateFinProm;
+
+        return $this;
+    }
+
+    public function getTauxReduction(): ?int
+    {
+        return $this->tauxReduction;
+    }
+
+    public function setTauxReduction(int $tauxReduction): self
+    {
+        $this->tauxReduction = $tauxReduction;
+
+        return $this;
+    }
+
+    public function getIdProd(): ?Produit
+    {
+        return $this->idProd;
+    }
+
+    public function setIdProd(?Produit $idProd): self
+    {
+        $this->idProd = $idProd;
+
+        return $this;
+    }
 
 
 }

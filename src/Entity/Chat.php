@@ -55,5 +55,58 @@ class Chat
      */
     private $idUser;
 
+    public function getIdComment(): ?int
+    {
+        return $this->idComment;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getReportNbr(): ?int
+    {
+        return $this->reportNbr;
+    }
+
+    public function setReportNbr(int $reportNbr): self
+    {
+        $this->reportNbr = $reportNbr;
+
+        return $this;
+    }
+
+    public function getIdStream(): ?Stream
+    {
+        return $this->idStream;
+    }
+
+    public function setIdStream(?Stream $idStream): self
+    {
+        $this->idStream = $idStream;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

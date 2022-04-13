@@ -45,5 +45,46 @@ class Commentaire
      */
     private $idUser;
 
+    public function getIdCom(): ?int
+    {
+        return $this->idCom;
+    }
+
+    public function getContentCom(): ?string
+    {
+        return $this->contentCom;
+    }
+
+    public function setContentCom(string $contentCom): self
+    {
+        $this->contentCom = $contentCom;
+
+        return $this;
+    }
+
+    public function getDateCom(): ?\DateTimeInterface
+    {
+        return $this->dateCom;
+    }
+
+    public function setDateCom(?\DateTimeInterface $dateCom): self
+    {
+        $this->dateCom = $dateCom;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }

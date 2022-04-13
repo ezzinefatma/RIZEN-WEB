@@ -31,5 +31,22 @@ class Pinned
      */
     private $idPub;
 
+    public function getIdPin(): ?int
+    {
+        return $this->idPin;
+    }
+
+    public function getIdPub(): ?Publication
+    {
+        return $this->idPub;
+    }
+
+    public function setIdPub(?Publication $idPub): self
+    {
+        $this->idPub = $idPub;
+
+        return $this;
+    }
+
 
 }
