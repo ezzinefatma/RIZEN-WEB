@@ -16,6 +16,7 @@ class ChatType extends AbstractType
     {
         $builder
             ->add('content', TextareaType::class)
+            ->add('idStream')
 
             ->add('Envoyer',SubmitType::class)
 

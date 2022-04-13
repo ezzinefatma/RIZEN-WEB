@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chat;
+use App\Form\ChatType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ChatController extends AbstractController
 {
     /**
-     * @Route("/chat", name="app_chat")
+     * @Route("/chat", name="display_Chat")
      */
     public function index(): Response
     {
@@ -24,20 +25,20 @@ class ChatController extends AbstractController
      */
     public function addstream(Request $request ): Response
     {
-        $ = new Chat();
+        $chat  = new Chat();
 
-        $form = $this->createForm(StreamType::class,$Stream);
+        $form = $this->createForm(ChatType::class,$chat);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($Stream);//Add
+            $em->persist($chat);//Add
             $em->flush();
 
-            return $this->redirectToRoute('display_stream');
+            return $this->redirectToRoute('display_Chat');
         }
-        return $this->render('Stream/createStream.html.twig',['f'=>$form->createView()]);
+        return $this->render('Chat/createChat.html.twig',['ch'=>$form->createView()]);
 
 
 
