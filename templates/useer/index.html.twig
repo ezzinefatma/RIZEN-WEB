@@ -1,64 +1,47 @@
 {% extends 'baseuser.html.twig'  %}
-{% block body %}
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
 
 
 
 
 
-    {%  for produit in b  %}
 
 
-        <!-- Product Section Begin -->
-        <section class="product spad">
-        <div class="container">
-        <div class="row">
-        <div class="col-lg-8">
-        <div class="trending__product">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8">
-                <div class="section-title">
-                    <h4>Trending Now</h4>
+
+    {% block title %}Les produits
+    {% endblock %}
+
+    {% block body %}
+        <section class="bg-light p-3">
+
+        </section>
+
+        <section class="row">
+            {%  for produit in b  %}
+                <div class="col-2 mt-4">
+                    <div class="border border-dark rounded p-2 clearfix">
+                        <h2>{{ produit.marque }}</h2>
+                        <p>{{ produit.prix }} €</p>
+                        <img class="w-70" src="{{ asset('assets/img/'~ produit.imageProd) }}" alt="Image de {{ produit.marque }}">
+
+
+                        <hr>
+                        <a     href="{{path("app_cart", {'idProd': produit.idProd})}}" class="btn btn-success">
+                            <i class="bi bi-cart-plus"></i> Add Cart
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <div class="btn__all">
-                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
-                    <div class="ep">18 / 18</div>
-                    <img src="{{ asset('assets/img/'~ produit.imageProd) }}"  alt=""  >
-
-                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                    <td>
-                        <a class="btn btn-outline-secondary" href="#">Add cart</a>
-                    </td>
-
-                </div>
-                <div class="product__item__text">
-                    <ul>
-                        <li>Active</li>
-                        <li>Movie</li>
-                    </ul>
-                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                </div>
-            </div>
-        </div>
-
-
-    {% endfor %}
+            {% endfor %}
+        </section>
+    {% endblock %}
 
 
 
 
-{% endblock %}
+
+
+
+
+
+
+
