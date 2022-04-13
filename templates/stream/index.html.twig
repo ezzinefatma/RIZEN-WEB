@@ -1,0 +1,66 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+
+<div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 100px; min-height: max-content;">
+    <div class="col-lg-6">
+        <div class="card" style="width: 100rem;"  >
+
+
+        <div class="card-body" >
+            <a href="{{ path('addstream') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+            <h5 class="card-title" style="font-size: 50px;">liste des stream</h5>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+                <thead>
+
+                <tr>
+                    <th>idStream</th>
+                    <th>titreStream</th>
+                    <th>categorie</th>
+                    <th>nbrLike</th>
+                    <th>nbrReport</th>
+                    <th>url</th>
+                    <th>status</th>
+                    <th>backgroundPic</th>
+                    <th>idUser</th>
+                    <th>Modification</th>
+                    <th>Suppression</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for stream in s %}
+                    <tr>
+                        <td>{{ stream.idStream }}</td>
+                        <td>{{ stream.titreStream }}</td>
+                        <td>{{ stream.categorie }}</td>
+                        <td>{{ stream.nbrLike }}</td>
+                        <td>{{ stream.nbrReport }}</td>
+                        <td>{{ stream.url }}</td>
+                        <td>{{ stream.status }}</td>
+                        <td>{{ stream.backgroundPic }}</td>
+                        <td>{{ stream.idUser}}</td>
+                        <td> <a class="btn btn-dark"  href="{{ path('edit_stream',{'idStream':stream.idStream})}}">Edit</a>
+                        <td> <a class="btn btn-danger" href="{{ path('delete_stream',{'idStream':stream.idStream})}}">Delete </a>
+                        </td>
+
+
+
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+                                         </table>
+            <!-- End Table with stripped rows -->
+
+        </div>
+
+         </div>
+
+    </div>
+
+</div>
+{% endblock %}

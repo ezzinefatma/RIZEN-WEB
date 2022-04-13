@@ -48,5 +48,46 @@ class InscriptionEvent
      */
     private $idUsr;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getDateIns(): ?\DateTimeInterface
+    {
+        return $this->dateIns;
+    }
+
+    public function setDateIns(\DateTimeInterface $dateIns): self
+    {
+        $this->dateIns = $dateIns;
+
+        return $this;
+    }
+
+    public function getIdEvent(): ?Event
+    {
+        return $this->idEvent;
+    }
+
+    public function setIdEvent(?Event $idEvent): self
+    {
+        $this->idEvent = $idEvent;
+
+        return $this;
+    }
+
+    public function getIdUsr(): ?User
+    {
+        return $this->idUsr;
+    }
+
+    public function setIdUsr(?User $idUsr): self
+    {
+        $this->idUsr = $idUsr;
+
+        return $this;
+    }
+
 
 }

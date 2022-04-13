@@ -59,5 +59,70 @@ class Wallet
      */
     private $idUser;
 
+    public function getIdWallet(): ?int
+    {
+        return $this->idWallet;
+    }
+
+    public function getSolde(): ?int
+    {
+        return $this->solde;
+    }
+
+    public function setSolde(int $solde): self
+    {
+        $this->solde = $solde;
+
+        return $this;
+    }
+
+    public function getCardNumber(): ?string
+    {
+        return $this->cardNumber;
+    }
+
+    public function setCardNumber(string $cardNumber): self
+    {
+        $this->cardNumber = $cardNumber;
+
+        return $this;
+    }
+
+    public function getCsc(): ?int
+    {
+        return $this->csc;
+    }
+
+    public function setCsc(int $csc): self
+    {
+        $this->csc = $csc;
+
+        return $this;
+    }
+
+    public function getExpire(): ?string
+    {
+        return $this->expire;
+    }
+
+    public function setExpire(string $expire): self
+    {
+        $this->expire = $expire;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }
