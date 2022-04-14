@@ -2,23 +2,51 @@
 
 {% block body %}
 
-	<section class="bg-light p-3">
 
-	</section>
+			<div class="album py-5 bg-light">
+				<div class="container">
 
-	<section class="row">
-		{%  for stream in s  %}
-			<div class="col-2 mt-4">
-				<div class="border border-dark rounded p-2 clearfix">
-					<h2>{{ stream.titreStream }}</h2>
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+						{% for stream in s %}
+							<br/>
+						<div class="col">
+							<div class="card shadow-sm">
+								<script type="text/javascript">
 
+                                    var url = "{{ stream.url}}";
+                                    var id = url.split("?v=")[1];
 
-					<hr>
+                                    var embedlink = "http://www.youtube.com/embed/" + id;
+
+                                    var ytube1 = document.getElementsByClassName("myIframe");
+
+                                    ytube1[{{loop.index0}}].src = embedlink;
+								</script>
+								<iframe  src="{{ stream.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<br/>
+								<div class="card-body">
+
+									<p class="card-text">{{ stream.titreStream }}</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+											<button type="button" class="btn btn-sm btn-outline-secondary">Abonner</button>
+										</div>
+										<small class="text-muted">{{ stream.createdAt | date }}</small>
+									</div>
+								</div>
+
+							</div>
+							<br/>
+						</div>
+							<br/>
+
+						{% endfor %}
+					</div>
 
 				</div>
 			</div>
-		{% endfor %}
-	</section>
+
 
 {% endblock %}
 

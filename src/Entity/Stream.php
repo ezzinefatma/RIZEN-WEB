@@ -80,6 +80,11 @@ class Stream
      */
     private $idUser;
 
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $createdAt;
+
     public function getIdStream(): ?int
     {
         return $this->idStream;
@@ -183,6 +188,18 @@ class Stream
     public function __toString()
     {
         return (string) $this->getIdStream();
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 
 
