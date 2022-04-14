@@ -22,24 +22,23 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, ProduitRepository  $produitRepository)
     {
+
         $panier = $session->get("panier", []);
 
         // On "fabrique" les données
         $dataPanier = [];
-
+        $total = 0;
 
         foreach($panier as $idProd => $quantite){
-
+            $product = $produitRepository->find($idProd);
             $dataPanier[] = [
-                'produit' => $produitRepository->find($idProd),
-                'quantite' => $quantite
+                "produit" => $product,
+                "quantite" => $quantite
             ];
+            $total += $product->getPrix() * $quantite;
         }
 
-
-        return $this->render('cart/index.html.twig',[
-            'items'=>$dataPanier]);
-
+        return $this->render('cart/index.html.twig', compact("dataPanier", "total"));
 
     }
 

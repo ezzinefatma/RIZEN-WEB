@@ -13,7 +13,10 @@
         <tr>
             <th>libelle</th>
             <th>Prix</th>
-            <th>Quantité</th>
+            <th>quantie</th>
+
+
+
             <th>Total</th>
             <th>Actions</th>
 
@@ -21,15 +24,13 @@
         </thead>
 
     <tbody>
-    {% for element in  items  %}
-        <tr>
-            <td>{{ element.quantie }}</td>
 
-    {% else %}
-        <tr>
-            <td colspan="5" class="text-center">Votre panier est vide</td>
-        </tr>
-    {% endfor %}
+    {% for element in dataPanier %}
+    <tr>
+        <td>{{ element.produit.libelle }}</td>
+        <td class="text-end">{{ element.produit.Prix }} €</td>
+        <td>{{ element.quantite }}</td>
+        {% endfor %}
     </tbody>
 
 
