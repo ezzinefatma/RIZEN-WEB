@@ -1,0 +1,24 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block body %}
+
+	<section class="bg-light p-3">
+
+	</section>
+
+	<section class="row">
+		{%  for stream in s  %}
+			<div class="col-2 mt-4">
+				<div class="border border-dark rounded p-2 clearfix">
+					<h2>{{ stream.titreStream }}</h2>
+
+
+					<hr>
+
+				</div>
+			</div>
+		{% endfor %}
+	</section>
+
+{% endblock %}
+

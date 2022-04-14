@@ -29,6 +29,8 @@ class StreamController extends AbstractController
         return $this->render('admin/index.html.twig');
     }
 
+
+
     /**
      * @Route("/addstream", name="addstream")
      */
@@ -85,8 +87,6 @@ class StreamController extends AbstractController
             return $this->redirectToRoute('display_stream');
         }
         return $this->render('Stream/updateStream.html.twig',['f1'=>$form->createView()]);
-
-
 
     }
 

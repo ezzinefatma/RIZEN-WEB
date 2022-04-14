@@ -1,20 +1,58 @@
-<!DOCTYPE html>
-
-<title>Hello ChatController!</title>
+{% extends 'baseadmin.html.twig' %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/ford_/Documents/web_pi/RIZEN-WEB/src/Controller/ChatController.php'|file_link(0) }}">src/Controller/ChatController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/ford_/Documents/web_pi/RIZEN-WEB/templates/chat/index.html.twig'|file_link(0) }}">templates/chat/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 100px; min-height: max-content;">
+        <div class="col-lg-6">
+            <div class="card" style="width: 100rem;"  >
+
+
+                <div class="card-body" >
+                    <a href="{{ path('addchat') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                    <h5 class="card-title" style="font-size: 50px;">liste des Messages</h5>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table table-striped">
+                        <thead>
+
+                        <tr>
+                            <th>idComment</th>
+                            <th>content</th>
+                            <th>reportNbr</th>
+                            <th>idStream</th>
+                            <th>idUser</th>
+                            <th>Modification</th>
+                            <th>Suppression</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for Chat in c %}
+                            <tr>
+                                <td>{{ Chat.idComment }}</td>
+                                <td>{{ Chat.content }}</td>
+                                <td>{{ Chat.reportNbr }}</td>
+                                <td>{{ Chat.idStream }}</td>
+                                <td>{{ Chat.idUser }}</td>
+                                <td> <a class="btn btn-dark"  href="{{ path('edit_message',{'idComment':Chat.idComment})}}">Edit</a>
+                                <td> <a class="btn btn-danger" href="{{ path('delete_message',{'idComment':Chat.idComment})}}">Delete </a>
+                                </td>
+
+
+
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- End Table with stripped rows -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 {% endblock %}

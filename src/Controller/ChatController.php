@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chat;
+use App\Form\ChatEditType;
 use App\Form\ChatType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,14 +17,14 @@ class ChatController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('chat/index.html.twig', [
-            'controller_name' => 'ChatController',
+        $chat = $this->getDoctrine()->getManager()->getRepository(Chat::class)->findAll();
+        return $this->render('chat/index.html.twig', ['c'=>$chat
         ]);
     }
     /**
      * @Route("/addchat", name="addchat")
      */
-    public function addstream(Request $request ): Response
+    public function addchat(Request $request ): Response
     {
         $chat  = new Chat();
 
@@ -39,6 +40,44 @@ class ChatController extends AbstractController
             return $this->redirectToRoute('display_Chat');
         }
         return $this->render('Chat/createChat.html.twig',['ch'=>$form->createView()]);
+
+
+
+    }
+
+    /**
+     * @Route("/removeChat/{idComment}", name="delete_message")
+     */
+    public function deletemessage(Chat $chat): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($chat);
+        $em->flush();
+
+        return $this->redirectToRoute('display_Chat');
+
+
+    }
+
+
+    /**
+     * @Route("/editmessage/{idComment}", name="edit_message")
+     */
+    public function Editmessage(Request $request , $idComment ): Response
+    {
+        $chat = $this->getDoctrine()->getManager()->getRepository(Chat::class)->find($idComment);
+
+        $form = $this->createForm(ChatEditType::class,$chat);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return $this->redirectToRoute('display_Chat');
+        }
+        return $this->render('Chat/UpdateChat.html.twig',['ch1'=>$form->createView()]);
 
 
 

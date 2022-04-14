@@ -1,0 +1,39 @@
+{% extends 'baseadmin.html.twig'  %}
+{% block body %}
+	<div style="display: flex;align-items: center;justify-content: center;margin-top: 150px; padding: 50px; ">
+
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Ajouter Un Message</h5>
+
+				<!-- General Form Elements -->
+				{{ form_start(ch1) }}
+
+
+				<label for="inputText" class="col-sm-6 col-form-label">Message</label>
+				<div class="col-sm-10">
+					{{ form_widget(ch1.content,{'attr':{'class':'form-control'}}) }}
+				</div>
+				<label for="inputText" class="col-sm-6 col-form-label">id Stream</label>
+				<div class="col-sm-10">
+					{{ form_widget(ch1.idStream,{'attr':{'class':'form-control'}}) }}
+				</div>
+
+				<label for="inputText" class="col-sm-6 col-form-label">report nbr</label>
+				<div class="col-sm-10">
+					{{ form_widget(ch1.reportNbr,{'attr':{'class':'form-control'}}) }}
+				</div>
+
+				<br/>
+				<div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+					{{ form_widget(ch1.Modifier,{'attr':{'class':'btn btn-primary'}}) }}
+				</div>
+
+
+				{{ form_end(ch1) }}
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
