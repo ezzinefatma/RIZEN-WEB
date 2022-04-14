@@ -5,14 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Produit
  *
  * @ORM\Table(name="produit")
- * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
+ * @ORM\Entity
  */
-
 class Produit
 {
     /**
@@ -32,9 +31,13 @@ class Produit
     private $categorieProd;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" libelle doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un titre au mini de 5 caracteres"
      *
-     * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $libelle;
 

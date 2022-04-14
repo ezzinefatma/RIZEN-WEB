@@ -22,9 +22,9 @@ class Order
     private $idOr;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="id_prod", type="integer", nullable=false)
+     * @ORM\Column(name="id_prod", type="integer", nullable=true)
      */
     private $idProd;
 
@@ -73,7 +73,7 @@ class Order
         return $this->idProd;
     }
 
-    public function setIdProd(int $idProd): self
+    public function setIdProd(?int $idProd): self
     {
         $this->idProd = $idProd;
 
