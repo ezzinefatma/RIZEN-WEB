@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -113,6 +115,170 @@ class Produit
     {
         $this->idUser1 = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idUser2 = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdProd(): ?int
+    {
+        return $this->idProd;
+    }
+
+    public function getCategorieProd(): ?string
+    {
+        return $this->categorieProd;
+    }
+
+    public function setCategorieProd(string $categorieProd): self
+    {
+        $this->categorieProd = $categorieProd;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(string $libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDescriptionProd(): ?string
+    {
+        return $this->descriptionProd;
+    }
+
+    public function setDescriptionProd(string $descriptionProd): self
+    {
+        $this->descriptionProd = $descriptionProd;
+
+        return $this;
+    }
+
+    public function getImageProd(): ?string
+    {
+        return $this->imageProd;
+    }
+
+    public function setImageProd(string $imageProd): self
+    {
+        $this->imageProd = $imageProd;
+
+        return $this;
+    }
+
+    public function getDisponibilite(): ?string
+    {
+        return $this->disponibilite;
+    }
+
+    public function setDisponibilite(string $disponibilite): self
+    {
+        $this->disponibilite = $disponibilite;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(float $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(int $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getIdUser1(): Collection
+    {
+        return $this->idUser1;
+    }
+
+    public function addIdUser1(User $idUser1): self
+    {
+        if (!$this->idUser1->contains($idUser1)) {
+            $this->idUser1[] = $idUser1;
+        }
+
+        return $this;
+    }
+
+    public function removeIdUser1(User $idUser1): self
+    {
+        $this->idUser1->removeElement($idUser1);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getIdUser2(): Collection
+    {
+        return $this->idUser2;
+    }
+
+    public function addIdUser2(User $idUser2): self
+    {
+        if (!$this->idUser2->contains($idUser2)) {
+            $this->idUser2[] = $idUser2;
+            $idUser2->addIdProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdUser2(User $idUser2): self
+    {
+        if ($this->idUser2->removeElement($idUser2)) {
+            $idUser2->removeIdProduit($this);
+        }
+
+        return $this;
     }
 
 }

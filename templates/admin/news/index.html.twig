@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<title>Hello NewsController!</title>
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table border="1">
+        <thead>
+        <th> Id event</th>
+        <th> Titre event</th>
+        <th> Date debut</th>
+        <th> Date fin</th>
+        <th> Modification</th>
+        <th> Suppression</th>
+        </thead>
+        <tbody>
+        {% for news in b %}
+            <tr>
+                <td>{{news.idNews}}</td>
+                <td>{{news.titreNews}}</td>
+                <td>{{news.contenuNews}}</td>
+                <td>{{news.dateNews}}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

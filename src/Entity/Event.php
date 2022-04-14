@@ -70,5 +70,94 @@ class Event
      */
     private $typeEvent;
 
+    public function getidEvent(): ?int
+    {
+        return $this->idEvent;
+    }
+
+    public function gettitre_event(): ?string
+    {
+        return $this->titreEvent;
+    }
+
+    public function setTitreEvent(string $titreEvent): self
+    {
+        $this->titreEvent = $titreEvent;
+
+        return $this;
+    }
+
+    public function getdate_debut(): ?string
+    {
+        return $this->dateDebut;
+    }
+
+    public function setDateDebut(string $dateDebut): self
+    {
+        $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    public function getdate_fin(): ?string
+    {
+        return $this->dateFin;
+    }
+
+    public function setDateFin(string $dateFin): self
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    public function getImageEvent(): ?string
+    {
+        return $this->imageEvent;
+    }
+
+    public function setImageEvent(string $imageEvent): self
+    {
+        $this->imageEvent = $imageEvent;
+
+        return $this;
+    }
+
+    public function getdescription_event(): ?string
+    {
+        return $this->descriptionEvent;
+    }
+
+    public function setDescriptionEvent(string $descriptionEvent): self
+    {
+        $this->descriptionEvent = $descriptionEvent;
+
+        return $this;
+    }
+
+    public function getCapacite(): ?int
+    {
+        return $this->capacite;
+    }
+
+    public function setCapacite(int $capacite): self
+    {
+        $this->capacite = $capacite;
+
+        return $this;
+    }
+
+    public function gettype(): ?string
+    {
+        return $this->typeEvent;
+    }
+
+    public function setTypeEvent(string $typeEvent): self
+    {
+        $this->typeEvent = $typeEvent;
+
+        return $this;
+    }
+
 
 }

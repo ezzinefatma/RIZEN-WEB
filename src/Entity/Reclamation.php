@@ -59,5 +59,70 @@ class Reclamation
      */
     private $idUser;
 
+    public function getIdRec(): ?int
+    {
+        return $this->idRec;
+    }
+
+    public function getTypeRec(): ?string
+    {
+        return $this->typeRec;
+    }
+
+    public function setTypeRec(string $typeRec): self
+    {
+        $this->typeRec = $typeRec;
+
+        return $this;
+    }
+
+    public function getDescriptionRec(): ?string
+    {
+        return $this->descriptionRec;
+    }
+
+    public function setDescriptionRec(string $descriptionRec): self
+    {
+        $this->descriptionRec = $descriptionRec;
+
+        return $this;
+    }
+
+    public function getStatutRec(): ?string
+    {
+        return $this->statutRec;
+    }
+
+    public function setStatutRec(string $statutRec): self
+    {
+        $this->statutRec = $statutRec;
+
+        return $this;
+    }
+
+    public function getDateRec(): ?\DateTimeInterface
+    {
+        return $this->dateRec;
+    }
+
+    public function setDateRec(\DateTimeInterface $dateRec): self
+    {
+        $this->dateRec = $dateRec;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
 
 }
