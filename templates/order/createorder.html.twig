@@ -1,0 +1,58 @@
+{% extends 'baseUser.html.twig'  %}
+{% block body %}
+    <div class="row">
+        <div  style="display: flex;align-items: center;justify-content: center;margin-top: 30px; padding: 300px;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Blog Backend ADMIN</h5>
+
+                    <!-- General Form Elements -->
+                    {{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
+                    <label for="inputText" class="col-sm-40 col-form-label">prix Achat</label>
+                    <div class="col-sm-40">
+                        {{ form_widget(f.prixAchat,{'attr':{'class':'form-control'}}) }}
+
+                    </div>
+
+
+
+
+                    <label for="inputText" class="col-sm-40 col-form-label">Quantité</label>
+                    <div class="col-sm-40">
+                        {{ form_widget(f.qte,{'attr':{'class':'form-control'}}) }}
+
+                    </div>
+
+                    <label for="inputText" class="col-sm-40 col-form-label">nom</label>
+                    <div class="col-sm-40">
+                        {{ form_widget(f.nomClient,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <label for="inputText" class="col-sm-40 col-form-label">adress</label>
+                    <div class="col-sm-40">
+                        {{ form_widget(f.adressClient,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <label for="inputText" class="col-sm-40 col-form-label">tele</label>
+                    <div class="col-sm-40">
+                        {{ form_widget(f.tele,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+
+
+
+
+
+
+
+                  
+
+                    {{ form_end(f) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Facture;
+use App\Entity\Order;
+use App\Form\OrderType;
 use App\Form\PaymentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,10 +40,22 @@ class PaymentController extends AbstractController
             $em->persist($facture);//Add
             $em->flush();
 
-            return $this->redirectToRoute('app_payment');
+            return $this->redirectToRoute('aff_paymentuser');
         }
         return $this->render('payment/createPayment.html.twig', ['f' => $form->createView()]);
 
+    }
+
+    /**
+     * @Route("/facture", name="aff_paymentuser")
+     */
+    public function indexuser( ): Response
+    {
+
+        $facture = $this->getDoctrine()->getManager()->getRepository(Facture::class)->findAll();
+        return $this->render('payment/affichage.html.twig', [
+            'b'=>$facture
+        ]);
     }
     /**
      * @Route("/facture", name="aff_payment")
@@ -67,4 +81,28 @@ class PaymentController extends AbstractController
 
 
     }
+    /**
+     * @Route("/addorder", name="addorder")
+     */
+    public function addcommd(Request $request): Response
+    {
+        $order = new Order();
+
+        $form = $this->createForm(OrderType::class, $order);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($order);//Add
+            $em->flush();
+
+            return $this->redirectToRoute('aff_paymentuser');
+        }
+        return $this->render('order/createorder.html.twig', ['f' => $form->createView()]);
+
+    }
 }
+
+
+

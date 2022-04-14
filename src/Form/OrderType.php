@@ -7,17 +7,19 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PaymentType extends AbstractType
+class OrderType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('quantite')
-            ->add('nom')
-            ->add('prenom')
-            ->add('prixtot')
-            ->add('Payment',SubmitType::class)
+            ->add('prixAchat')
+            ->add('qte')
+            ->add('nomClient')
+            ->add('adressClient')
+            ->add('tele')
 
+
+            ->add('Valider commande',SubmitType::class)
         ;
     }
 
