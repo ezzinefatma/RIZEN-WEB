@@ -1,13 +1,37 @@
 {% extends 'baseuser.html.twig'  %}
 
-{% block title %}Hello CartController!
+{% block title %} Hello CartController!
 {% endblock %}
 
 {% block body %}
-    <div class="bg-light p-7">
+    <section class="bg-light p-7">
         <h1>Votre panier</h1>
-    </div>
-    <div class="bg-light p-7">
-   <b> Surprise, c'est vide !</b>
-    </div>
+    </section>
+    <table class="table">
+        <thead>
+
+        <tr>
+            <th>libelle</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+
+    <tbody>
+    {% for element in  items  %}
+        <tr>
+            <td>{{ element.quantie }}</td>
+
+    {% else %}
+        <tr>
+            <td colspan="5" class="text-center">Votre panier est vide</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+
+    </table>
 {% endblock %}

@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+
+use App\Repository\ProduitRepository;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\Produit;
+use Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSettingsDoctrineCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,32 +15,53 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends AbstractController
 {
+
+
     /**
-     * @Route("/cart", name="app_cart")
+     * @Route("/uu", name="index")
      */
-    public function index(): Response
+    public function index(SessionInterface $session, ProduitRepository  $produitRepository)
     {
-        return $this->render('cart/index.html.twig'
-        );
+        $panier = $session->get("panier", []);
+
+        // On "fabrique" les données
+        $dataPanier = [];
+
+
+        foreach($panier as $idProd => $quantite){
+
+            $dataPanier[] = [
+                'produit' => $produitRepository->find($idProd),
+                'quantite' => $quantite
+            ];
+        }
+
+
+        return $this->render('cart/index.html.twig',[
+            'items'=>$dataPanier]);
+
+
     }
 
     /**
-     * @Route("/carte/{idProd}", name="app_carte")
+     * @Route("/add/{id}", name="add")
      */
+    public function add(Produit $produit, SessionInterface $session)
+    {
+        // On récupère le panier actuel
+        $panier = $session->get("panier", []);
+        $idProd = $produit->getIdProd();
 
-     public function cart(SessionInterface  $session, Produit  $produit){
-         $panier = $session->get("panier" ,[]);
-
-        $idPro =$produit->getIdProd();
-        if(!empty($panier[$idPro])){
-            $panier[$idPro]++;
-
+        if(!empty($panier[$idProd])){
+            $panier[$idProd]++;
         }else{
-            $panier[$idPro]=1;
+            $panier[$idProd] = 1;
         }
 
-        $session->set("panier",$panier);
-     return $this->redirectToRoute('app_cart');
+        // On sauvegarde dans la session
+        $session->set("panier", $panier);
 
-     }
+        return $this->redirectToRoute("cart_index");
+    }
+
 }
