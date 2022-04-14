@@ -1,0 +1,48 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+
+    <div  style="display: flex;align-items: center;justify-items: center;margin-left: 250px; padding: 50px;">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="card-title">Liste des Produit</h5>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>numéro facture</th>
+                        <th>quantite</th>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>prix total</th>
+                        <th>Suppression</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for payment in b %}
+                        <tr>
+                            <td>{{ payment.numfac }}</td>
+                            <td>{{ payment.quantite }}</td>
+                            <td>{{ payment.nom }}</td>
+                            <td>{{ payment.prenom }}</td>
+                            <td>{{ payment.prixtot }}</td>
+
+
+
+                            <td>
+                                <a  class="btn  btn-dark"  href="{{ path('supp_facture',{'numfac':payment.numfac}) }}">Supprimer</a>
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

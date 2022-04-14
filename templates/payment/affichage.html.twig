@@ -1,0 +1,45 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block title %}Hello ProduitController!{% endblock %}
+
+{% block body %}
+
+    <div  style="display: flex;align-items: center;justify-items: center;margin-left: 250px; padding: 50px;">
+        <div class="card">
+            <div class="card-body">
+                <a href="{{ path('addProduit') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                <h5 class="card-title">Liste des Produit</h5>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>numéro facture</th>
+                        <th>quantite</th>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>prix total</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for payment in b %}
+                        <tr>
+                            <td>{{ payment.numfac }}</td>
+                            <td>{{ payment.quantite }}</td>
+                            <td>{{ payment.nom }}</td>
+                            <td>{{ payment.prenom }}</td>
+                            <td>{{ payment.prixtot }}</td>
+
+
+
+
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
