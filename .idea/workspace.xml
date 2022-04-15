@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d632cf92-d9c3-415c-840d-6bdd66402096" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/news/update.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +208,7 @@
       <workItem from="1649711860153" duration="1872000" />
       <workItem from="1649809731395" duration="16161000" />
       <workItem from="1649854170740" duration="2789000" />
-      <workItem from="1649922705108" duration="11324000" />
+      <workItem from="1649922705108" duration="15877000" />
     </task>
     <servers />
   </component>

@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EventType extends AbstractType
 {
@@ -15,10 +18,19 @@ class EventType extends AbstractType
             ->add('titreEvent')
             ->add('dateDebut')
             ->add('dateFin')
-            ->add('imageEvent')
+            ->add('imageEvent', FileType::class , array('data_class' => null))
             ->add('descriptionEvent')
             ->add('capacite')
-            ->add('typeEvent')
+            ->add('typeEvent',ChoiceType::class ,
+                [
+                    'choices'  =>
+                        [
+                            'online' => 'online',
+                            'gaming_house' => 'gaming_house',
+
+                        ],
+
+                ])
             ->add('Ajouter',SubmitType::class)
         ;
     }
