@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Promotion
  *
@@ -35,7 +35,11 @@ class Promotion
      */
     private $dateFinProm;
 
+
+
     /**
+     * @Assert\Positive
+     * @Assert\NotBlank(message="tauxReduction  doit etre non vide")
      * @var int
      *
      * @ORM\Column(name="taux_reduction", type="integer", nullable=false)
@@ -43,6 +47,7 @@ class Promotion
     private $tauxReduction;
 
     /**
+     * @Assert\NotBlank(message="tauxReduction  doit etre non vide")
      * @var \Produit
      *
      * @ORM\ManyToOne(targetEntity="Produit")
@@ -51,7 +56,10 @@ class Promotion
      * })
      */
     private $idProd;
-
+    public function __toString()
+    {
+        return (string) $this->getIdProm();
+    }
     public function getIdProm(): ?int
     {
         return $this->idProm;

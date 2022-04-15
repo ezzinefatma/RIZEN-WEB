@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Facture
  *
@@ -22,20 +22,25 @@ class Facture
     private $numfac;
 
     /**
+     * @Assert\Positive
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     private $quantite;
 
+
     /**
+     * @Assert\NotBlank(message="nom  doit etre non vide")
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
+
     /**
+     * @Assert\NotBlank(message="prenom  doit etre non vide")
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
@@ -43,6 +48,7 @@ class Facture
     private $prenom;
 
     /**
+     *   * @Assert\Positive
      * @var float
      *
      * @ORM\Column(name="prixtot", type="float", precision=10, scale=0, nullable=false)
@@ -59,7 +65,11 @@ class Facture
      */
     private $idProd;
 
+
+
+
     /**
+     * @Assert\NotBlank(message="prenom  doit etre non vide")
      * @var \Wallet
      *
      * @ORM\ManyToOne(targetEntity="Wallet")
@@ -146,5 +156,8 @@ class Facture
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return (string)$this->getNumfac();
+    }
 }

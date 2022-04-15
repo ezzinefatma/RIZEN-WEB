@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Fournisseur
  *
@@ -20,36 +20,60 @@ class Fournisseur
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idfou;
-
     /**
-     * @var string
+     * @Assert\NotBlank(message=" nom doit etre non vide")
+     * @Assert\Length(
+     *      min = 4,
+     *      minMessage=" Entrer un nom au mini de 5 caracteres"
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $nom;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" prenom doit etre non vide")
+     * @Assert\Length(
+     *      min = 4,
+     *      minMessage=" Entrer un prenom au mini de 5 caracteres"
      *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $prenom;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" ville doit etre non vide")
+     * @Assert\Length(
+     *      min = 4,
+     *      minMessage=" Entrer un ville au mini de 5 caracteres"
      *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $ville;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" adresse doit etre non vide")
+     * @Assert\Length(
+     *      min = 4,
+     *      minMessage=" Entrer un adresse au mini de 5 caracteres"
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $adresse;
 
+
+
+
     /**
+     * @Assert\NotBlank(message="TELE  doit etre non vide")
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "doit etre =8 ",
+     *      maxMessage = "doit etre =8" )
      * @var int
      *
      * @ORM\Column(name="tele", type="integer", nullable=false)

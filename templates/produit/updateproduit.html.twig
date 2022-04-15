@@ -14,6 +14,9 @@
 
                     </div>
 
+                    {{ form_errors(f.categorieProd,{'attr':{'class':'text-danger'}}) }}
+
+
 
 
 
@@ -22,38 +25,47 @@
                         {{ form_widget(f.libelle,{'attr':{'class':'form-control'}}) }}
 
                     </div>
-
+                    {{ form_errors(f.libelle,{'attr':{'class':'text-danger'}}) }}
                     <label for="inputText" class="col-sm-5 col-form-label">marque</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.marque,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.marque,{'attr':{'class':'text-danger'}}) }}
                     <label for="inputText" class="col-sm-5 col-form-label">prix</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.prix,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.prix,{'attr':{'class':'text-danger'}}) }}
 
                     <label for="inputText" class="col-sm-5 col-form-label">description</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.descriptionProd,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.descriptionProd,{'attr':{'class':'text-danger'}}) }}
 
                     <label for="inputText" class="col-sm-5 col-form-label">imageProd</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.imageProd,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.imageProd,{'attr':{'class':'text-danger'}}) }}
 
                     <label for="inputText" class="col-sm-5 col-form-label">disponibilite</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.disponibilite,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.disponibilite,{'attr':{'class':'text-danger'}}) }}
+
                     <label for="inputText" class="col-sm-5 col-form-label">note</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.note,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.note,{'attr':{'class':'text-danger'}}) }}
+
                     <label for="inputText" class="col-sm-5 col-form-label">quantite</label>
                     <div class="col-sm-10">
                         {{ form_widget(f.quantite,{'attr':{'class':'form-control'}}) }}
                     </div>
+                    {{ form_errors(f.quantite,{'attr':{'class':'text-danger'}}) }}
 
 
                     <br/>

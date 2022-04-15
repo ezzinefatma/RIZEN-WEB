@@ -52,22 +52,21 @@ class Produit
      */
     private $marque;
 
+
     /**
+     * @Assert\Positive
+
+     *
+     *
      * @var float
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
-     */
-
-
-    /**
-     * @Assert\NotBlank(message=" prix doit etre non vide")
-     * @Assert\Length(
-     *      min = 1,
-     *      minMessage=" Entrer un prix au mini de 5 caracteres"
      *
-     *     )
-     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
      */
+
+
+
+
     private $prix;
 
     /**
@@ -121,16 +120,17 @@ class Produit
      * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     /**
-     * @Assert\NotBlank(message=" titre doit etre non vide")
-     * @Assert\Length(
-     *      min = 5,
-     *      minMessage=" Entrer un titre au mini de 5 caracteres"
+     * @Assert\NotBlank(message=" quantite doit etre non vide")
+     * @Assert\Positive
+     *  * @var int
      *
-     *     )
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     private $quantite;
-
+    public function __toString()
+    {
+        return (string) $this->getIdProd();
+    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      *

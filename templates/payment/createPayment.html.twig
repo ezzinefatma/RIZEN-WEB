@@ -97,10 +97,10 @@
 
 
     <section class="get-in-touch">
-        <h1 class="title">Ajouter Un Stream </h1>
+        <h1 class="title">Payment </h1>
 
         <div>
-            {{ form_start (f) }}
+            {{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
             <div class="contact-form row">
 
 
@@ -108,25 +108,33 @@
                     <label class="label" for="name">quantite</label>
                     {{ form_widget(f.quantite,{'attr':{'class':'input-text js-input'}}) }}
                 </div>
+                {{ form_errors(f.quantite,{'attr':{'class':'text-danger'}}) }}
 
                 <div class="form-field col-lg-6">
 
                     <label class="label" for="name">nom</label>
                     {{ form_widget(f.nom,{'attr':{'class':'form-control js-input'}}) }}
                 </div>
+                {{ form_errors(f.nom,{'attr':{'class':'text-danger'}}) }}
 
 
                 <div class="form-field col-lg-6">
                     <label class="label" for="name">prenom</label>
                     {{ form_widget(f.prenom,{'attr':{'class':'input-text js-input'}}) }}
                 </div>
+                {{ form_errors(f.prenom,{'attr':{'class':'text-danger'}}) }}
 
                 <div class="form-field col-lg-6">
                     <label class="label" for="name">prixtot</label>
                     {{ form_widget(f.prixtot,{'attr':{'class':'form-control js-input'}}) }}
                 </div>
 
-
+                {{ form_errors(f.prixtot,{'attr':{'class':'text-danger'}}) }}
+                <div class="form-field col-lg-6">
+                    <label class="label" for="name">Wallet</label>
+                    {{ form_widget(f.idWallet,{'attr':{'class':'form-control js-input'}}) }}
+                </div>
+                {{ form_errors(f.idWallet,{'attr':{'class':'text-danger'}}) }}
 
 
 

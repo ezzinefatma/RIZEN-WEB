@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends AbstractController
 {
- 
+
     /**
      * @Route("/addPayment", name="addPayment")
      */

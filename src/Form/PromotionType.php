@@ -15,12 +15,13 @@ class PromotionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('idProd')
-            ->add('dateDebutProm',  DateType::class)
 
+
+
+            ->add('dateDebutProm' , DateType::class)
             ->add('dateFinProm', DateType::class)
             ->add('tauxReduction')
-
+            ->add('idProd')
 
 
             ->add('ajouter',SubmitType::class)

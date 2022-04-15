@@ -16,6 +16,7 @@ class PaymentType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('prixtot')
+            ->add('idWallet')
             ->add('Payment',SubmitType::class)
 
         ;

@@ -25,6 +25,7 @@
 
                             <p class="card-text">{{  produit.marque}}</p>
                             <p class="card-text">{{ produit.prix }} €</p>
+                            <p class="card-text">{{ produit.disponibilite }} </p>
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -32,8 +33,12 @@
                                     <a     href="{{ path('index',{'idProd':produit.idProd}) }}" class="btn btn-success">
                                         <i class="bi bi-cart-plus"></i> Add Cart
                                     </a>
+                                    <a     href="{{ path('show',{'idProd':produit.idProd}) }}" class="btn btn-success">
+                                        <i class="bi bi-"></i> view
+                                    </a>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>

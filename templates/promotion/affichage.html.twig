@@ -8,10 +8,12 @@
         <div class="card">
             <div class="card-body">
                 <a href="{{ path('addPromotion') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
-                <h5 class="card-title">Liste des Produit</h5>
+                <h5 class="card-title">Liste des Promotion</h5>
                 <table class="table table-striped">
                     <thead>
                     <tr>
+
+                        <th>id produit</th>
                         <th>tauxReduction</th>
                         <th>dateDebutProm</th>
                         <th>dateFinProm</th>
@@ -24,6 +26,7 @@
                 <tbody>
                 {% for promotion in s %}
                     <tr>
+                        <td>{{ promotion.idProd }}</td>
                         <td>{{ promotion.tauxReduction }}</td>
                         <td> {{ promotion.dateDebutProm|date("m/d/Y") }}</td>
                         <td> {{ promotion.dateFinProm|date("m/d/Y") }}</td>

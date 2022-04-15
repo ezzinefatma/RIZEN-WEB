@@ -20,4 +20,16 @@ class UseerController extends AbstractController
             'b'=>$produit
         ]);
     }
+
+    /**
+     * @Route("/show_des/{idProd}", name="show")
+     * @param Produit $produit
+     * @return Response
+     */
+    public function show(Produit $produit): Response
+    {
+        return $this->render("useer/aff.html.twig", [
+            "b" => $produit
+        ]);
+    }
 }
