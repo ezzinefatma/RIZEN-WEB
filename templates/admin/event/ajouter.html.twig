@@ -1,2 +1,48 @@
-{{ form_start(f, {attr: {'novalidate': 'novalidate'}}) }}
-{{ form_end(f) }}
+{% extends 'admin/index.html.twig' %}
+{% block bodyy %}
+    <div class="row">
+        <div  style="display: flex;align-items: center;justify-content: center;margin-top: 150px; padding: 10px;">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Blog Backend ADMIN</h5>
+
+                    <!-- General Form Elements -->
+                    {{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
+                    <label for="inputText" class="col-sm-4 col-form-label">Titre</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(f.titreEvent,{'attr':{'class':'form-control'}}) }}
+
+                    </div>
+                    {{ form_errors(f.titreEvent,{'attr':{'class':'text-danger'}}) }}
+
+
+
+                    <label for="inputText" class="col-sm-4 col-form-label">Contenu</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(f.dateDebut,{'attr':{'class':'form-control'}}) }}
+
+                    </div>
+                    {{ form_errors(f.dateDebut,{'attr':{'class':'text-danger'}}) }}
+
+                    <label for="inputText" class="col-sm-4 col-form-label">Auteur</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(f.typeEvent,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    {{ form_errors(f.typeEvent,{'attr':{'class':'text-danger'}}) }}
+
+                    <br/>
+                    <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                        {{ form_widget(f.imageEvent,{'attr':{'class':'btn btn-primary'}}) }}
+                    </div>
+
+                    {{ form_end(f) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

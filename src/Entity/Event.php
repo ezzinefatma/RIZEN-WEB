@@ -75,7 +75,7 @@ class Event
         return $this->idEvent;
     }
 
-    public function gettitre_event(): ?string
+    public function getTitreEvent(): ?string
     {
         return $this->titreEvent;
     }
@@ -87,7 +87,7 @@ class Event
         return $this;
     }
 
-    public function getdate_debut(): ?string
+    public function getDateDebut(): ?string
     {
         return $this->dateDebut;
     }
@@ -99,7 +99,7 @@ class Event
         return $this;
     }
 
-    public function getdate_fin(): ?string
+    public function getDateFin(): ?string
     {
         return $this->dateFin;
     }
@@ -123,7 +123,7 @@ class Event
         return $this;
     }
 
-    public function getdescription_event(): ?string
+    public function getDescriptionEvent(): ?string
     {
         return $this->descriptionEvent;
     }
@@ -147,7 +147,7 @@ class Event
         return $this;
     }
 
-    public function gettype(): ?string
+    public function getTypeEvent(): ?string
     {
         return $this->typeEvent;
     }

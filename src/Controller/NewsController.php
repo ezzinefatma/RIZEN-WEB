@@ -14,9 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends AbstractController
 {
     /**
-     * @Route("/display_events", name="news")
+     * @Route("/display_news", name="display_news")
      */
-    public function index(): Response
+    public function display_news(): Response
     {
         $news = $this->getDoctrine()->getManager()->getRepository(news::class)->findAll();
         return $this->render('admin/news/index.html.twig',['b'=>$news]);
@@ -34,8 +34,35 @@ class NewsController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($news);
             $em->flush();
-            return $this->redirectToRoute("news");
+            return $this->redirectToRoute("display_news");
         }
         return $this->render('admin/news/ajouter.html.twig',['f'=>$form->createView()]);
+    }
+    /**
+     * @Route("/delete/{idEvent}", name="deleteStudent")
+     */
+    public function deleteNews($idNews)
+    {
+        $news = $this->getDoctrine()->getRepository(news::class)->find($idNews);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($news);
+        $em->flush();
+        return $this->redirectToRoute("display_news");
+    }
+    /**
+     * @Route("/modifierNews/{idNews} ", name="modifierNews")
+     */
+    public function modifierNews(Request $request,$idNews): Response
+    {
+
+        $news = $this->getDoctrine()->getManager()->getRepository(event::class)->find($idNews);
+        $form = $this->createForm(EventType::class, $news);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("display_news");
+        }
+        return $this->render('admin/news/update.html.twig',['f'=>$form->createView()]);
     }
 }

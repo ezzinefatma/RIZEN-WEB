@@ -2,29 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d632cf92-d9c3-415c-840d-6bdd66402096" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Chat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contrat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contrat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/news/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Facture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Fournisseur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Fournisseur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/HistoriqueCoins.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/HistoriqueCoins.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Icoingame.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Icoingame.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/InscriptionEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/InscriptionEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Livrer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Livrer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Pinned.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Pinned.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promotion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Publication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Stream.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/UserStreamHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserStreamHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Wallet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Wallet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +176,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../validation" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.postfix.templates" />
@@ -200,13 +184,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\RIZEN-WEB\src\Form" />
       <recent name="C:\wamp64\www\RIZEN-WEB\templates\admin\news" />
+      <recent name="C:\wamp64\www\RIZEN-WEB\src\Form" />
       <recent name="C:\wamp64\www\RIZEN-WEB\templates\admin\event" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\RIZEN-WEB\templates" />
       <recent name="C:\wamp64\www\RIZEN-WEB\templates\admin" />
+      <recent name="C:\wamp64\www\RIZEN-WEB\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -227,7 +211,7 @@
       <workItem from="1649711860153" duration="1872000" />
       <workItem from="1649809731395" duration="16161000" />
       <workItem from="1649854170740" duration="2789000" />
-      <workItem from="1649922705108" duration="6456000" />
+      <workItem from="1649922705108" duration="11324000" />
     </task>
     <servers />
   </component>
