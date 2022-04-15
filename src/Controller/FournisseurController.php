@@ -46,10 +46,11 @@ class FournisseurController extends AbstractController
 
 
     }
+
     /**
-     * @Route("/removefournisseur/{idFou}", name="sp_fourniseur ")
+     * @Route("/removefournisseur/{idFou}", name="sp_fourniseur")
      */
-    public function suppressionproduit(Fournisseur $fournisseur): Response
+    public function suppressionprodui(Fournisseur $fournisseur): Response
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($fournisseur);

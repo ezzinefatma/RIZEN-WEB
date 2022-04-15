@@ -22,9 +22,9 @@ class OrderController extends AbstractController
     }
 
     /**
-     * @Route("/addorder", name="addorder")
+     * @Route("/orderap", name="order")
      */
-    public function addcommd(Request $request): Response
+    public function addco(Request $request): Response
     {
         $order = new Order();
 
@@ -37,10 +37,9 @@ class OrderController extends AbstractController
             $em->persist($order);//Add
             $em->flush();
 
-            return $this->redirectToRoute('aff_paymentuser');
+            return $this->redirectToRoute('app_order');
         }
-        return $this->render('order/createorder.html.twig', ['f' => $form->createView()]);
+        return $this->render('order/index.html.twig', ['f' => $form->createView()]);
 
     }
 }
-

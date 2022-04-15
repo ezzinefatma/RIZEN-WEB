@@ -13,17 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PaymentController extends AbstractController
 {
-    /**
-     * @Route("/pyment/{numfac}", name="app_payment")
-     */
-    public function index( Facture $facture): Response
-    {
-
-        $facture = $this->getDoctrine()->getManager()->getRepository(Facture::class)->findBy($facture);
-        return $this->render('payment/affichage.html.twig', [
-            'b'=>$facture
-        ]);
-    }
+ 
     /**
      * @Route("/addPayment", name="addPayment")
      */
@@ -81,28 +71,8 @@ class PaymentController extends AbstractController
 
 
     }
-    /**
-     * @Route("/addorder", name="addorder")
-     */
-    public function addcommd(Request $request): Response
-    {
-        $order = new Order();
 
-        $form = $this->createForm(OrderType::class, $order);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($order);//Add
-            $em->flush();
-
-            return $this->redirectToRoute('aff_paymentuser');
-        }
-        return $this->render('order/createorder.html.twig', ['f' => $form->createView()]);
-
-    }
 }
-
 
 

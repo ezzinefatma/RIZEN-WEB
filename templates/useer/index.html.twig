@@ -1,4 +1,3 @@
-{% extends 'baseuser.html.twig'  %}
 
 
 
@@ -7,34 +6,49 @@
 
 
 
+{% extends 'baseUser.html.twig' %}
 
-    {% block title %}Les produits
-    {% endblock %}
+{% block body %}
 
-    {% block body %}
-        <section class="bg-light p-3">
 
-        </section>
 
-        <section class="row">
-            {%  for produit in b  %}
-                <div class="col-2 mt-4">
-                    <div class="border border-dark rounded p-2 clearfix">
-                        <h2>{{ produit.marque }}</h2>
-                        <p>{{ produit.prix }} €</p>
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {%  for produit in b  %}                <br/>
+                <div class="col">
+                    <div class="card shadow-sm">
+
                         <img class="w-70" src="{{ asset('assets/img/'~ produit.imageProd) }}" alt="Image de {{ produit.marque }}">
+                        <br/>
+                        <div class="card-body ">
 
+                            <p class="card-text">{{  produit.marque}}</p>
+                            <p class="card-text">{{ produit.prix }} €</p>
 
-                        <hr>
-                        <a     href="{{ path('index',{'idProd':produit.idProd}) }}" class="btn btn-success">
-                            <i class="bi bi-cart-plus"></i> Add Cart
-                        </a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <hr>
+                                    <a     href="{{ path('index',{'idProd':produit.idProd}) }}" class="btn btn-success">
+                                        <i class="bi bi-cart-plus"></i> Add Cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                    <br/>
                 </div>
-            {% endfor %}
-        </section>
-    {% endblock %}
+                <br/>
 
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
 
 
 
