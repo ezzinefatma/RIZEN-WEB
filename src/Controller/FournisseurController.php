@@ -47,7 +47,7 @@ class FournisseurController extends AbstractController
 
     }
     /**
-     * @Route("/removefournisseur/{idFou}", name="supp_fournisseur")
+     * @Route("/removefournisseur/{idFou}", name="sp_fourniseur ")
      */
     public function suppressionproduit(Fournisseur $fournisseur): Response
     {

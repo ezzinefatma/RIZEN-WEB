@@ -1,56 +1,148 @@
-{% extends 'baseUser.html.twig'  %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'baseUser.html.twig' %}
+
 {% block body %}
-    <div class="row" style="display:flex;align-items:center;justify-content:center;margin-top:150px"> <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Add Blog Backend ADMIN</h5>
-
-                    <!-- General Form Elements -->
-                    {{ form_start(f,{attr:{novalidate:'novalidate'}}) }}
-                    <label for="inputText" class="col-sm-40 col-form-label">Quantité</label>
-                    <div class="col-sm-40">
-                        {{ form_widget(f.quantite,{'attr':{'class':'form-control'}}) }}
-
-                    </div>
-
-
-
-
-                    <label for="inputText" class="col-sm-40 col-form-label">Nom</label>
-                    <div class="col-sm-40">
-                        {{ form_widget(f.nom,{'attr':{'class':'form-control'}}) }}
-
-                    </div>
-
-                    <label for="inputText" class="col-sm-40 col-form-label">Prenom</label>
-                    <div class="col-sm-40">
-                        {{ form_widget(f.prenom,{'attr':{'class':'form-control'}}) }}
-                    </div>
-                    <label for="inputText" class="col-sm-40 col-form-label">prix totale</label>
-                    <div class="col-sm-40">
-                        {{ form_widget(f.prixtot,{'attr':{'class':'form-control'}}) }}
-                    </div>
 
 
 
 
 
 
+    <style type="text/css">
+
+        .get-in-touch {
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+
+        }
+        .get-in-touch .title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 3.2em;
+            line-height: 48px;
+            padding-bottom: 48px;
+            color: #5543ca;
+            background: #5543ca;
+            background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+            background: -webkit-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+            background: linear-gradient(to right,#f4524d  0%,#5543ca  100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .contact-form .form-field {
+            position: relative;
+            margin: 32px 0;
+        }
+        .contact-form .input-text {
+            display: block;
+            width: 100%;
+            height: 36px;
+            border-width: 0 0 2px 0;
+            border-color: #5543ca;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 400;
+        }
+        .contact-form .input-text:focus {
+            outline: none;
+        }
+        .contact-form .input-text:focus + .label,
+        .contact-form .input-text.not-empty + .label {
+            -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+        }
+        .contact-form .label {
+            position: absolute;
+            left: 20px;
+            bottom: 30px;
+            font-size: 22px;
+            line-height: 26px;
+            font-weight: 600;
+            color: #B545C0  ;
+            cursor: text;
+            transition: -webkit-transform .2s ease-in-out;
+
+        }
+        .contact-form .submit-btn {
+            display: inline-block;
+            background-color: #000;
+            background-image: linear-gradient(125deg,#a72879,#064497);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            padding: 8px 16px;
+            border: none;
+            width:200px;
+            cursor: pointer;
+        }
+
+    </style>
 
 
-                    <br/>
-                    <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
 
-                        {{ form_widget(f.Payment,{'attr':{'class':'btn btn-primary'}}) }}
-                    </div>
 
-                    {{ form_end(f) }}
+    <section class="get-in-touch">
+        <h1 class="title">Ajouter Un Stream </h1>
+
+        <div>
+            {{ form_start (f) }}
+            <div class="contact-form row">
+
+
+                <div class="form-field col-lg-6">
+                    <label class="label" for="name">quantite</label>
+                    {{ form_widget(f.quantite,{'attr':{'class':'input-text js-input'}}) }}
+                </div>
+
+                <div class="form-field col-lg-6">
+
+                    <label class="label" for="name">nom</label>
+                    {{ form_widget(f.nom,{'attr':{'class':'form-control js-input'}}) }}
+                </div>
+
+
+                <div class="form-field col-lg-6">
+                    <label class="label" for="name">prenom</label>
+                    {{ form_widget(f.prenom,{'attr':{'class':'input-text js-input'}}) }}
+                </div>
+
+                <div class="form-field col-lg-6">
+                    <label class="label" for="name">prixtot</label>
+                    {{ form_widget(f.prixtot,{'attr':{'class':'form-control js-input'}}) }}
+                </div>
+
+
+
+
+
+                <div class="form-field col-lg-12">
+
+
+                    {{ form_widget(f.Payment,{'attr':{'class':'btn btn-primary'}}) }}
 
                 </div>
+
+
             </div>
-
-        </div>
-
-    </div>
-
+            {{ form_end (f) }}
+    </section>
 
 {% endblock %}
+
+
+

@@ -34,7 +34,7 @@ class Produit
      * @Assert\NotBlank(message=" libelle doit etre non vide")
      * @Assert\Length(
      *      min = 5,
-     *      minMessage=" Entrer un titre au mini de 5 caracteres"
+     *      minMessage=" Entrer un libelle au mini de 5 caracteres"
      *
      *     )
      * @ORM\Column(type="string", length=255)
@@ -42,9 +42,13 @@ class Produit
     private $libelle;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" marque doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un marque au mini de 5 caracteres"
      *
-     * @ORM\Column(name="marque", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $marque;
 
@@ -53,12 +57,27 @@ class Produit
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
      */
+
+
+    /**
+     * @Assert\NotBlank(message=" prix doit etre non vide")
+     * @Assert\Length(
+     *      min = 1,
+     *      minMessage=" Entrer un prix au mini de 5 caracteres"
+     *
+     *     )
+     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
+     */
     private $prix;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" description doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un description au mini de 5 caracteres"
      *
-     * @ORM\Column(name="description_prod", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $descriptionProd;
 
@@ -70,9 +89,13 @@ class Produit
     private $imageProd;
 
     /**
-     * @var string
+     * @Assert\NotBlank(message=" disponibilite doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un disponibilite au mini de 5 caracteres"
      *
-     * @ORM\Column(name="disponibilite", type="string", length=255, nullable=false)
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $disponibilite;
 
@@ -81,12 +104,30 @@ class Produit
      *
      * @ORM\Column(name="note", type="float", precision=10, scale=0, nullable=false)
      */
+    /**
+     * @Assert\NotBlank(message=" note doit etre non vide")
+     * @Assert\Length(
+     *      max = 1,
+     *      maxMessage=" Entrer un note au max de 1 nombre"
+     *
+     *     )
+     * @ORM\Column(type="string", length=255)
+     */
     private $note;
 
     /**
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer", nullable=false)
+     */
+    /**
+     * @Assert\NotBlank(message=" titre doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un titre au mini de 5 caracteres"
+     *
+     *     )
+     * @ORM\Column(type="string", length=255)
      */
     private $quantite;
 

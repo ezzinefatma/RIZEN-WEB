@@ -47,7 +47,7 @@ class PaymentController extends AbstractController
     }
 
     /**
-     * @Route("/facture", name="aff_paymentuser")
+     * @Route("/factur", name="aff_paymentuser")
      */
     public function indexuser( ): Response
     {

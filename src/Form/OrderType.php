@@ -17,9 +17,10 @@ class OrderType extends AbstractType
             ->add('nomClient')
             ->add('adressClient')
             ->add('tele')
+            ->add('Ajouter',SubmitType::class)
 
 
-            ->add('Valider commande',SubmitType::class)
+
         ;
     }
 

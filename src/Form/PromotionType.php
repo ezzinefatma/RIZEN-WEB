@@ -19,6 +19,8 @@ class PromotionType extends AbstractType
 
             ->add('dateFinProm', DateType::class)
             ->add('tauxReduction')
+            ->add('idProd')
+
 
             ->add('ajouter',SubmitType::class)
 

@@ -22,30 +22,30 @@ class Facture
     private $numfac;
 
     /**
-     * @var int|null
+     * @var int
      *
-     * @ORM\Column(name="quantite", type="integer", nullable=true)
+     * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     private $quantite;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      */
     private $prenom;
 
     /**
-     * @var float|null
+     * @var float
      *
-     * @ORM\Column(name="prixtot", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="prixtot", type="float", precision=10, scale=0, nullable=false)
      */
     private $prixtot;
 
@@ -79,7 +79,7 @@ class Facture
         return $this->quantite;
     }
 
-    public function setQuantite(?int $quantite): self
+    public function setQuantite(int $quantite): self
     {
         $this->quantite = $quantite;
 
@@ -91,7 +91,7 @@ class Facture
         return $this->nom;
     }
 
-    public function setNom(?string $nom): self
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 
@@ -103,7 +103,7 @@ class Facture
         return $this->prenom;
     }
 
-    public function setPrenom(?string $prenom): self
+    public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
 
@@ -115,7 +115,7 @@ class Facture
         return $this->prixtot;
     }
 
-    public function setPrixtot(?float $prixtot): self
+    public function setPrixtot(float $prixtot): self
     {
         $this->prixtot = $prixtot;
 

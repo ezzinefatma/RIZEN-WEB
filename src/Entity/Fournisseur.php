@@ -22,37 +22,37 @@ class Fournisseur
     private $idfou;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      */
     private $prenom;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     * @ORM\Column(name="ville", type="string", length=255, nullable=false)
      */
     private $ville;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
      */
     private $adresse;
 
     /**
-     * @var int|null
+     * @var int
      *
-     * @ORM\Column(name="tele", type="integer", nullable=true)
+     * @ORM\Column(name="tele", type="integer", nullable=false)
      */
     private $tele;
 
@@ -66,7 +66,7 @@ class Fournisseur
         return $this->nom;
     }
 
-    public function setNom(?string $nom): self
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 
@@ -78,7 +78,7 @@ class Fournisseur
         return $this->prenom;
     }
 
-    public function setPrenom(?string $prenom): self
+    public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
 
@@ -90,7 +90,7 @@ class Fournisseur
         return $this->ville;
     }
 
-    public function setVille(?string $ville): self
+    public function setVille(string $ville): self
     {
         $this->ville = $ville;
 
@@ -102,7 +102,7 @@ class Fournisseur
         return $this->adresse;
     }
 
-    public function setAdresse(?string $adresse): self
+    public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
 
@@ -114,7 +114,7 @@ class Fournisseur
         return $this->tele;
     }
 
-    public function setTele(?int $tele): self
+    public function setTele(int $tele): self
     {
         $this->tele = $tele;
 
