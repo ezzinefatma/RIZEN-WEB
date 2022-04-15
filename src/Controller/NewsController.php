@@ -16,7 +16,7 @@ class NewsController extends AbstractController
     /**
      * @Route("/display_news", name="display_news")
      */
-    public function display_news(): Response
+    public function index(): Response
     {
         $news = $this->getDoctrine()->getManager()->getRepository(news::class)->findAll();
         return $this->render('admin/news/index.html.twig',['b'=>$news]);
@@ -39,7 +39,7 @@ class NewsController extends AbstractController
         return $this->render('admin/news/ajouter.html.twig',['f'=>$form->createView()]);
     }
     /**
-     * @Route("/delete/{idEvent}", name="deleteStudent")
+     * @Route("/delete/{idEvent}", name="deleteNews")
      */
     public function deleteNews($idNews)
     {

@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d632cf92-d9c3-415c-840d-6bdd66402096" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/event/ajouter.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/event/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/event/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/news/ajouter.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/news/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/news/update.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +179,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../validation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/user" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.postfix.templates" />
@@ -181,6 +187,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\RIZEN-WEB\templates\user" />
       <recent name="C:\wamp64\www\RIZEN-WEB\templates\admin\news" />
       <recent name="C:\wamp64\www\RIZEN-WEB\src\Form" />
       <recent name="C:\wamp64\www\RIZEN-WEB\templates\admin\event" />
@@ -208,7 +215,8 @@
       <workItem from="1649711860153" duration="1872000" />
       <workItem from="1649809731395" duration="16161000" />
       <workItem from="1649854170740" duration="2789000" />
-      <workItem from="1649922705108" duration="15877000" />
+      <workItem from="1649922705108" duration="19896000" />
+      <workItem from="1649995328925" duration="4225000" />
     </task>
     <servers />
   </component>
