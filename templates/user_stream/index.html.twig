@@ -3,7 +3,7 @@
 {% block body %}
 
 
-			<div class="album py-5 bg-light">
+
 				<div class="container">
 
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -11,26 +11,16 @@
 							<br/>
 						<div class="col">
 							<div class="card shadow-sm">
-								<script type="text/javascript">
 
-                                    var url = "{{ stream.url}}";
-                                    var id = url.split("?v=")[1];
-
-                                    var embedlink = "http://www.youtube.com/embed/" + id;
-
-                                    var ytube1 = document.getElementsByClassName("myIframe");
-
-                                    ytube1[{{loop.index0}}].src = embedlink;
-								</script>
 								<iframe  src="{{ stream.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								<br/>
-								<div class="card-body">
+								<div class="card-body ">
 
 									<p class="card-text">{{ stream.titreStream }}</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-											<button type="button" class="btn btn-sm btn-outline-secondary">Abonner</button>
+											<button type="button" class="btn btn-sm btn-outline-dark"> Regarder </button>
+											<a href="{{ path('edit_user_stream',{"idStream" : stream.idStream}) }}"  class="btn-outline-primary">Modifier</a>
 										</div>
 										<small class="text-muted">{{ stream.createdAt | date }}</small>
 									</div>
@@ -45,7 +35,7 @@
 					</div>
 
 				</div>
-			</div>
+
 
 
 {% endblock %}

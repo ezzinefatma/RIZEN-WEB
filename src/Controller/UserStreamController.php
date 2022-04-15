@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Stream;
 
+use App\Form\StreamUserEditType;
 use App\Form\StreamUserType;
+use App\Form\StreamUserUpdateType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,7 +53,28 @@ class UserStreamController extends AbstractController
 
             return $this->redirectToRoute('display_user_stream');
         }
-        return $this->render('user_stream/createStream.html.twig',['f'=>$form->createView()]);
+        return $this->render('user_stream/createStream.html.twig',['f2'=>$form->createView()]);
+
+    }
+
+    /**
+     * @Route("/edite_user_stream/{idStream}", name="edit_user_stream")
+     */
+    public function Editstream_user(Request $request , $idStream ): Response
+    {
+        $Stream = $this->getDoctrine()->getManager()->getRepository(Stream::class)->find($idStream);
+
+        $form = $this->createForm(StreamUserUpdateType::class,$Stream);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            return $this->redirectToRoute('display_user_stream');
+        }
+        return $this->render('user_stream/updatestream.html.twig',['f3'=>$form->createView()]);
 
     }
 
