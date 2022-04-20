@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Chat
@@ -23,6 +25,7 @@ class Chat
 
     /**
      * @var string
+     * @Assert\NotBlank(message="description  doit etre non vide")
      *
      * @ORM\Column(name="content", type="string", length=255, nullable=false)
      */
@@ -107,6 +110,7 @@ class Chat
 
         return $this;
     }
+
 
 
 }

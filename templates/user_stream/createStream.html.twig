@@ -88,7 +88,7 @@
 	<h1 class="title">Ajouter Un Stream </h1>
 
 
-		{{ form_start (f2) }}
+    {{ form_start(f2,{attr:{novalidate:'novalidate'}}) }}
 
     <div class="contact-form row">
 
@@ -96,35 +96,41 @@
         <div class="form-field col-lg-6">
             <label class="label" for="name">Titre</label>
             {{ form_widget(f2.titreStream,{'attr':{'class':'input-text js-input'}}) }}
-        </div>
 
+        </div>
+        {{ form_errors(f2.titreStream,{'attr':{'class':'text-danger'}}) }}
         <div class="form-field col-lg-6">
 
             <label class="label" for="name">Categorie</label>
             {{ form_widget(f2.categorie,{'attr':{'class':'form-control js-input'}}) }}
-        </div>
 
+        </div>
+        {{ form_errors(f2.categorie,{'attr':{'class':'text-danger'}}) }}
 
         <div class="form-field col-lg-6">
             <label class="label" for="name">Url de video</label>
             {{ form_widget(f2.url,{'attr':{'class':'input-text js-input'}}) }}
-        </div>
 
+        </div>
+        {{ form_errors(f2.url,{'attr':{'class':'text-danger'}}) }}
         <div class="form-field col-lg-6">
             <label class="label" for="name">Status</label>
             {{ form_widget(f2.status,{'attr':{'class':'form-control js-input'}}) }}
-        </div>
 
+        </div>
+        {{ form_errors(f2.status,{'attr':{'class':'text-danger'}}) }}
         <div class="form-field col-lg-6">
             <label class="label" for="name">photo d'arrière plan</label>
             {{ form_widget(f2.backgroundPic,{'attr':{'class':'input-file js-input'}}) }}
-        </div>
 
+        </div>
+        {{ form_errors(f2.backgroundPic,{'attr':{'class':'text-danger'}}) }}
 
 
 			<div class="form-field col-lg-12">
 
 				{{ form_widget(f2.Ajouter,{'attr':{'class':'submit-btn'}}) }}
+
 			</div>
 
     </div>

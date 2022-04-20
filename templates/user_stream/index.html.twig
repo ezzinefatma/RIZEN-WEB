@@ -19,8 +19,9 @@
 									<p class="card-text">{{ stream.titreStream }}</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-dark"> Regarder </button>
-											<a href="{{ path('edit_user_stream',{"idStream" : stream.idStream}) }}"  class="btn-outline-primary">Modifier</a>
+											<button onclick=window.location.href="{{ path('show_stream',{"idStream" : stream.idStream}) }}" type="button" class="btn btn-sm btn-outline-dark"> Regarder </button>
+											<button onclick=window.location.href="{{ path('edit_user_stream',{"idStream" : stream.idStream}) }}" TYPE="button" class="btn-outline-primary">Modifier</button>
+											<button onclick=window.location.href="{{ path('delete_user_stream',{"idStream" : stream.idStream}) }}" TYPE="button"  class="btn-outline-danger">Supprimer</button>
 										</div>
 										<small class="text-muted">{{ stream.createdAt | date }}</small>
 									</div>

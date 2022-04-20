@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Stream
  *
@@ -23,12 +23,16 @@ class Stream
 
     /**
      * @var string
-     *
+     *@Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un titre au mini de 8 caracteres"
+     * )
      * @ORM\Column(name="titre_stream", type="string", length=255, nullable=false)
      */
     private $titreStream;
 
     /**
+     * @Assert\NotBlank(message="description  doit etre non vide")
      * @var string
      *
      * @ORM\Column(name="categorie", type="string", length=0, nullable=false)
@@ -51,7 +55,11 @@ class Stream
 
     /**
      * @var string
+     * @Assert\Url(
      *
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     * @Assert\NotBlank(message="description  doit etre non vide")
      * @ORM\Column(name="url", type="string", length=255, nullable=false)
      */
     private $url;
@@ -59,11 +67,13 @@ class Stream
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="description  doit etre non vide")
      * @ORM\Column(name="status", type="string", length=0, nullable=false)
      */
     private $status;
 
     /**
+     * @Assert\NotBlank(message="description  doit etre non vide")
      * @var string
      *
      * @ORM\Column(name="background_pic", type="string", length=255, nullable=false)
@@ -194,10 +204,7 @@ class Stream
 
         return $this;
     }
-    public function __toString()
-    {
-        return (string) $this->getIdStream();
-    }
+
 
     public function getCreatedAt(): ?\DateTime
     {
@@ -211,5 +218,10 @@ class Stream
         return $this;
     }
 
+
+    public function __toString()
+    {
+        return (string) $this->getIdStream();
+    }
 
 }

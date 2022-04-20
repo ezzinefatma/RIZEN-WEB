@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Chat;
 use App\Entity\Stream;
 
-use App\Form\StreamUserEditType;
+use App\Form\ChatType;
+use App\Form\ChatUserType;
 use App\Form\StreamUserType;
 use App\Form\StreamUserUpdateType;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +28,7 @@ class UserStreamController extends AbstractController
         ]);
 
     }
+
 
     /**
      * @Route("/user", name="display_stream_user")
@@ -51,7 +55,7 @@ class UserStreamController extends AbstractController
             $em->persist($Stream);//Add
             $em->flush();
 
-            return $this->redirectToRoute('display_user_stream');
+            return $this->redirectToRoute('show_stream');
         }
         return $this->render('user_stream/createStream.html.twig',['f2'=>$form->createView()]);
 
@@ -79,4 +83,48 @@ class UserStreamController extends AbstractController
     }
 
 
+    /**
+     * @Route("/remove_user_Stream/{idStream}", name="delete_user_stream")
+     */
+    public function deleteStream(Stream $stream): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($stream);
+        $em->flush();
+
+        return $this->redirectToRoute('display_user_stream');
+
+
+    }
+
+    /**
+     * @Route("/show_stream/{idStream}", name="show_stream")
+     * @param Stream $stream
+     *
+     * @return Response
+     */
+    public function show( Stream $idStream ,Stream $stream , Request $request): Response
+    {
+      /*  $chat = $this->getDoctrine()->getManager()->getRepository(Chat::class)->findAll(); */
+
+
+        $chat1 = new Chat();
+
+        $form = $this->createForm(ChatUserType::class,$chat1);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $chat1->setIdStream($idStream);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($chat1);//Add
+            $em->flush();
+
+            return $this->redirectToRoute('show_stream',array('idStream' => $chat1->getIdStream()));
+        }
+
+        $chat = $this->getDoctrine()->getManager()->getRepository(Chat::class)->findBy(['idStream' => $idStream]);
+        return $this->render("user_stream/showstream.html.twig", [
+            "Stream" => $stream ,   'c1'=>$form->createView() ,'c'=>$chat
+               ]);
+    }
 }

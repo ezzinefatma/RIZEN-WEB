@@ -7,13 +7,14 @@
 				<h5 class="card-title">Ajouter Un Message</h5>
 
 				<!-- General Form Elements -->
-				{{ form_start(ch) }}
 
+				{{ form_start(ch,{attr:{novalidate:'novalidate'}}) }}
 
 				<label for="inputText" class="col-sm-6 col-form-label">Message</label>
 				<div class="col-sm-10">
 					{{ form_widget(ch.content,{'attr':{'class':'form-control'}}) }}
 				</div>
+
 				<label for="inputText" class="col-sm-6 col-form-label">id Stream</label>
 				<div class="col-sm-10">
 					{{ form_widget(ch.idStream,{'attr':{'class':'form-control'}}) }}

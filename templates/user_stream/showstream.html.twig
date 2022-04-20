@@ -1,0 +1,215 @@
+{% extends 'baseUser.html.twig' %}
+{% block title %}
+	{{Stream.titreStream}}
+{% endblock %}
+
+{% block body %}
+	<style xmlns="http://www.w3.org/1999/html">
+        /* Video Card */
+        .video-block .mb-3 {
+            margin-bottom: 30px !important;
+        }
+        .video-card-image {
+            border-radius: 2px;
+            box-shadow: 0 0 11px #ececec;
+            overflow: hidden;
+            position: relative;
+        }
+        .time {
+            background: #f5234a none repeat scroll 0 0;
+            border-radius: 2px;
+            bottom: 5px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.7;
+            padding: 0 6px;
+            position: absolute;
+            right: 5px;
+        }
+        .video-card:hover .time{
+            opacity: unset;
+        }
+        .video-card-image img {
+            width: 100%;
+        }
+        .play-icon {
+            opacity: 0;
+            position: absolute;
+        }
+        .play-icon .fas {
+            bottom: 0;
+            height: 40px;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+        }
+        .video-card:hover .play-icon {
+            background: #000 none repeat scroll 0 0;
+            border-radius: 2px;
+            bottom: 0;
+            color: #fff;
+            font-size: 35px;
+            left: 0;
+            opacity: 0.4;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            transition-duration: 0.4s;
+        }
+        .video-title a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .video-title {
+            margin-bottom: 5px;
+        }
+        .video-page {
+            font-size: 11px;
+        }
+        .video-view {
+            color: #acacac;
+            font-size: 10px;
+            font-weight: 500;
+            margin: 2px 0 0;
+        }
+        .video-card {
+            background: #fff none repeat scroll 0 0;
+            border-radius: 2px;
+            box-shadow: 0 0 11px #ececec;
+            transition-duration: 0.4s;
+        }
+        .video-card-body {
+            padding: 12px;
+        }
+        .video-card-list .video-card-image {
+            float: left;
+            height: 77px;
+            margin: 0 12px 0 0;
+            width: 122px;
+        }
+        .video-card-list .video-card-body {
+            padding: 0;
+        }
+        .video-card-list {
+            background: transparent none repeat scroll 0 0;
+            box-shadow: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        .video-card-list .video-card-body .video-title a {
+            font-size: 13px;
+        }
+        .video-card-list .video-card-body .video-title {
+            line-height: 17px;
+        }
+        .video-card-list .video-card-body .right-action {
+            opacity: 0;
+        }
+        .video-card-list:hover .video-card-body .right-action {
+            opacity: unset;
+        }
+        /* Channels Card */
+        .channels-card {
+            background: #fff none repeat scroll 0 0;
+            border-radius: 2px;
+            box-shadow: 0 0 11px #ececec;
+            padding: 24px 12px;
+            position: relative;
+            text-align: center;
+            transition-duration: 0.4s;
+        }
+        .channels-card::after {
+            background: #dcdcdc none repeat scroll 0 0;
+            border-radius: 0 0 5px 6px;
+            bottom: -4px;
+            content: "";
+            height: 7px;
+            left: 15px;
+            position: absolute;
+            right: 15px;
+            z-index: -1;
+        }
+        .channels-card:hover::after {
+            background: #cccccc none repeat scroll 0 0;
+        }
+        .channels-title a {
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .channels-view {
+            color: #acacac;
+        }
+        .channels-card-image .btn {
+            font-size: 12px;
+            padding: 3px 10px;
+        }
+        .channels-card-image .btn strong {
+            margin: 0 0 0 5px;
+        }
+
+	</style>
+	<div class="col-md-8">
+		<div class="single-video-left">
+			<div class="single-video">
+			</br>
+				<iframe width="100%" height="340" src="{{ Stream.url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+			</div>
+			<div class="single-video-title box mb-3">
+				<h2><a href="#">Contrary to popular belief, Lorem Ipsum (2019) is not.</a></h2>
+				<p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
+			</div>
+			<div class="single-video-author box mb-3">
+				<div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
+				<img class="img-fluid" src="img/s4.png" alt="">
+				<p><a href="#"><strong>Osahan Channel</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+				<small>Published on Aug 10, 2018</small>
+			</div>
+			<div class="single-video-info-content box mb-3">
+				<h6>Cast:</h6>
+				<p>Nathan Drake , Victor Sullivan , Sam Drake , Elena Fisher</p>
+				<h6>Category :</h6>
+				<p>Gaming , PS4 Exclusive , Gameplay , 1080p</p>
+				<h6>About :</h6>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved overVarious versions have evolved over the years, sometimes </p>
+				<h6>Tags :</h6>
+				<div class="grix xs2 sm3 gutter-0 card">
+					<div class="col-xs2 col-sm3">
+						<h2>Chat</h2>
+						{% for chat in c %}
+
+							<h3>Commentaire de {{chat.idUser}}</h3>
+							<div>{{	chat.content}}</div>
+
+						{% endfor %}
+					</div>
+					<div class="col-xs2 col-sm3" id="ajout-commentaire">
+						<h2>Ajouter un message</h2>
+						{{ form_start(c1) }}
+						<label for="inputText" class="col-sm-6 col-form-label">Message</label>
+						<div class="col-sm-10">
+							{{ form_widget(c1.content,{'attr':{'class':'form-control'}}) }}
+						</div>
+						<br/>
+						<div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+							{{ form_widget(c1.Envoyer,{'attr':{'class':'btn btn-primary'}}) }}
+						</div>
+						{{ form_end(c1) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+
