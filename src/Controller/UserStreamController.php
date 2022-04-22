@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Chat;
 use App\Entity\Stream;
 
+use App\Entity\User;
 use App\Form\ChatType;
 use App\Form\ChatUserType;
 use App\Form\StreamUserType;
@@ -107,14 +108,17 @@ class UserStreamController extends AbstractController
     {
       /*  $chat = $this->getDoctrine()->getManager()->getRepository(Chat::class)->findAll(); */
 
-
+        $user=$this->getDoctrine()->getManager()->getRepository(User::class)->findOneByIdUser(1);
         $chat1 = new Chat();
 
         $form = $this->createForm(ChatUserType::class,$chat1);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+
             $chat1->setIdStream($idStream);
+            $chat1->setIdUser($user);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($chat1);//Add
             $em->flush();

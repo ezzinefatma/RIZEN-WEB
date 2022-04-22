@@ -4,210 +4,464 @@
 {% endblock %}
 
 {% block body %}
-	<style xmlns="http://www.w3.org/1999/html">
-        /* Video Card */
-        .video-block .mb-3 {
-            margin-bottom: 30px !important;
-        }
-        .video-card-image {
-            border-radius: 2px;
-            box-shadow: 0 0 11px #ececec;
-            overflow: hidden;
-            position: relative;
-        }
-        .time {
-            background: #f5234a none repeat scroll 0 0;
-            border-radius: 2px;
-            bottom: 5px;
-            color: #fff;
-            font-size: 11px;
-            font-weight: 500;
-            opacity: 0.7;
-            padding: 0 6px;
-            position: absolute;
-            right: 5px;
-        }
-        .video-card:hover .time{
-            opacity: unset;
-        }
-        .video-card-image img {
+	<style>
+        body{margin-top:20px;}
+
+        /* WRAPPERS */
+        #wrapper {
             width: 100%;
+            overflow-x: hidden;
         }
-        .play-icon {
-            opacity: 0;
-            position: absolute;
+        .wrapper {
+            padding: 0 20px;
         }
-        .play-icon .fas {
-            bottom: 0;
-            height: 40px;
-            left: 0;
-            margin: auto;
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 40px;
+        .wrapper-content {
+            padding: 20px 10px 40px;
         }
-        .video-card:hover .play-icon {
-            background: #000 none repeat scroll 0 0;
-            border-radius: 2px;
-            bottom: 0;
-            color: #fff;
-            font-size: 35px;
-            left: 0;
-            opacity: 0.4;
-            position: absolute;
-            right: 0;
-            text-align: center;
-            top: 0;
-            transition-duration: 0.4s;
+        #page-wrapper {
+            padding: 0 15px;
+            min-height: 568px;
+            position: relative !important;
         }
-        .video-title a {
-            color: #000;
-            font-weight: 600;
-            text-decoration: none;
+        @media (min-width: 768px) {
+            #page-wrapper {
+                position: inherit;
+                margin: 0 0 0 240px;
+                min-height: 2002px;
+            }
         }
-        .video-title {
-            margin-bottom: 5px;
+        .img-fluid {
+            width: 8%;
+            border-radius: 5% ;
         }
-        .video-page {
-            font-size: 11px;
+
+        .message-input {
+            height: 90px !important;
         }
-        .video-view {
-            color: #acacac;
-            font-size: 10px;
-            font-weight: 500;
-            margin: 2px 0 0;
-        }
-        .video-card {
-            background: #fff none repeat scroll 0 0;
-            border-radius: 2px;
-            box-shadow: 0 0 11px #ececec;
-            transition-duration: 0.4s;
-        }
-        .video-card-body {
-            padding: 12px;
-        }
-        .video-card-list .video-card-image {
+        .chat-avatar {
+            white: 36px;
+            height: 36px;
             float: left;
-            height: 77px;
-            margin: 0 12px 0 0;
-            width: 122px;
+            margin-right: 10px;
         }
-        .video-card-list .video-card-body {
+        .chat-user-name {
+            padding: 10px;
+        }
+        .chat-user {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e7eaec;
+        }
+        .chat-user a {
+            color: inherit;
+        }
+        .chat-view {
+            z-index: 20012;
+        }
+        .chat-users,
+        .chat-statistic {
+            margin-left: -30px;
+        }
+        @media (max-width: 992px) {
+            .chat-users,
+            .chat-statistic {
+                margin-left: 0;
+            }
+        }
+        .chat-view .ibox-content {
             padding: 0;
         }
-        .video-card-list {
-            background: transparent none repeat scroll 0 0;
-            box-shadow: none;
-            display: inline-block;
-            margin-bottom: 1rem;
-            width: 100%;
+        .chat-message {
+            padding: 10px 20px;
         }
-        .video-card-list .video-card-body .video-title a {
-            font-size: 13px;
+        .message-avatar {
+            height: 48px;
+            width: 48px;
+            border: 1px solid #e7eaec;
+            border-radius: 4px;
+            margin-top: 1px;
         }
-        .video-card-list .video-card-body .video-title {
-            line-height: 17px;
+        .chat-discussion .chat-message.left .message-avatar {
+            float: left;
+            margin-right: 10px;
         }
-        .video-card-list .video-card-body .right-action {
-            opacity: 0;
+        .chat-discussion .chat-message.right .message-avatar {
+            float: right;
+            margin-left: 10px;
         }
-        .video-card-list:hover .video-card-body .right-action {
-            opacity: unset;
+        .videdescription {
+            float: right;
+            margin-right: 10px;
         }
-        /* Channels Card */
-        .channels-card {
-            background: #fff none repeat scroll 0 0;
-            border-radius: 2px;
-            box-shadow: 0 0 11px #ececec;
-            padding: 24px 12px;
+        .message {
+            background-color: #fff;
+            border: 1px solid #e7eaec;
+            text-align: left;
+            display: block;
+            padding: 10px 20px;
             position: relative;
-            text-align: center;
-            transition-duration: 0.4s;
+            border-radius: 4px;
         }
-        .channels-card::after {
-            background: #dcdcdc none repeat scroll 0 0;
-            border-radius: 0 0 5px 6px;
-            bottom: -4px;
-            content: "";
-            height: 7px;
-            left: 15px;
-            position: absolute;
-            right: 15px;
-            z-index: -1;
+        .chat-discussion .chat-message.left .message-date {
+            float: right;
         }
-        .channels-card:hover::after {
-            background: #cccccc none repeat scroll 0 0;
+        .chat-discussion .chat-message.right .message-date {
+            float: left;
         }
-        .channels-title a {
-            color: #000;
-            font-weight: 500;
-            text-decoration: none;
+        .chat-discussion .chat-message.left .message {
+            text-align: left;
+            margin-left: 55px;
         }
-        .channels-view {
-            color: #acacac;
+        .chat-discussion .chat-message.right .message {
+            text-align: right;
+            margin-right: 55px;
         }
-        .channels-card-image .btn {
-            font-size: 12px;
-            padding: 3px 10px;
+        .message-date {
+            font-size: 10px;
+            color: #888888;
         }
-        .channels-card-image .btn strong {
-            margin: 0 0 0 5px;
+        .message-content {
+            display: block;
+        }
+        .chat-discussion {
+            background: #eee;
+            padding: 15px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .chat-users {
+            overflow-y: auto;
+            height: 400px;
+        }
+        .chat-message-form .form-group {
+            margin-bottom: 0;
+        }
+        .ibox {
+            clear: both;
+            margin-bottom: 25px;
+            margin-top: 0;
+            padding: 0;
+        }
+        .ibox.collapsed .ibox-content {
+            display: none;
+        }
+        .ibox.collapsed .fa.fa-chevron-up:before {
+            content: "\f078";
+        }
+        .ibox.collapsed .fa.fa-chevron-down:before {
+            content: "\f077";
+        }
+        .ibox:after,
+        .ibox:before {
+            display: table;
+        }
+        .ibox-title {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background-color: #ffffff;
+            border-color: #e7eaec;
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 3px 0 0;
+            color: inherit;
+            margin-bottom: 0;
+            padding: 14px 15px 7px;
+            min-height: 48px;
+        }
+        .ibox-content {
+            background-color: #ffffff;
+            color: inherit;
+            padding: 15px 20px 20px 20px;
+            border-color: #e7eaec;
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 1px 0;
+        }
+        .ibox-footer {
+            color: inherit;
+            border-top: 1px solid #e7eaec;
+            font-size: 90%;
+            background: #ffffff;
+            padding: 10px 15px;
         }
 
+        .message-input {
+            height: 90px !important;
+        }
+        .form-control, .single-line {
+            background-color: #FFFFFF;
+            background-image: none;
+            border: 1px solid #e5e6e7;
+            border-radius: 1px;
+            color: inherit;
+            display: block;
+            padding: 6px 12px;
+            transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            width: 100%;
+            font-size: 14px;
+        }
+        body{
+            background:#eee;
+            margin-top:10px;
+        }
+
+        .ibox {
+            clear: both;
+            margin-bottom: 25px;
+            margin-top: 0;
+            padding: 0;
+        }
+        .ibox.collapsed .ibox-content {
+            display: none;
+        }
+        .ibox.collapsed .fa.fa-chevron-up:before {
+            content: "\f078";
+        }
+        .ibox.collapsed .fa.fa-chevron-down:before {
+            content: "\f077";
+        }
+        .ibox:after,
+        .ibox:before {
+            display: table;
+        }
+        .ibox-title {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background-color: #ffffff;
+            border-color: #e7eaec;
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 3px 0 0;
+            color: inherit;
+            margin-bottom: 0;
+            padding: 14px 15px 7px;
+            min-height: 48px;
+        }
+        .ibox-title h5 {
+            display: inline-block;
+            font-size: 14px;
+            margin: 0 0 7px;
+            padding: 0;
+            text-overflow: ellipsis;
+            float: left;
+        }
+        .ibox-tools a {
+            cursor: pointer;
+            margin-left: 5px;
+            color: #c4c4c4;
+        }
+        .ibox-tools {
+            display: block;
+            float: none;
+            margin-top: 0;
+            position: relative;
+            padding: 0;
+            text-align: right;
+        }
+        .ibox-content {
+            background-color: #ffffff;
+            color: inherit;
+            padding: 15px 20px 20px 20px;
+            border-color: #e7eaec;
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 1px 0;
+        }
+        .ibox-footer {
+            color: inherit;
+            border-top: 1px solid #e7eaec;
+            font-size: 90%;
+            background: #ffffff;
+            padding: 10px 15px;
+        }
+        video {
+            width: 100% !important;
+            height: max-content !important;
+        }
+        .video-likes {
+            color: #929292;
+            display: flex;
+            align-items: center;
+        }
+        body{
+            margin: 40px;
+        }
+
+        button{
+            cursor: pointer;
+            outline: 0;
+            color: #AAA;
+
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .green{
+            color: #20208f;
+        }
+
+        .red{
+            color: red;
+        }
 	</style>
-	<div class="col-md-8">
-		<div class="single-video-left">
-			<div class="single-video">
-			</br>
-				<iframe width="100%" height="340" src="{{ Stream.url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-			</div>
-			<div class="single-video-title box mb-3">
-				<h2><a href="#">Contrary to popular belief, Lorem Ipsum (2019) is not.</a></h2>
-				<p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
-			</div>
-			<div class="single-video-author box mb-3">
-				<div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
-				<img class="img-fluid" src="img/s4.png" alt="">
-				<p><a href="#"><strong>Osahan Channel</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
-				<small>Published on Aug 10, 2018</small>
-			</div>
-			<div class="single-video-info-content box mb-3">
-				<h6>Cast:</h6>
-				<p>Nathan Drake , Victor Sullivan , Sam Drake , Elena Fisher</p>
-				<h6>Category :</h6>
-				<p>Gaming , PS4 Exclusive , Gameplay , 1080p</p>
-				<h6>About :</h6>
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved overVarious versions have evolved over the years, sometimes </p>
-				<h6>Tags :</h6>
-				<div class="grix xs2 sm3 gutter-0 card">
-					<div class="col-xs2 col-sm3">
-						<h2>Chat</h2>
-						{% for chat in c %}
-
-							<h3>Commentaire de {{chat.idUser}}</h3>
-							<div>{{	chat.content}}</div>
-
-						{% endfor %}
+	<body >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Video Stream</h5>
 					</div>
-					<div class="col-xs2 col-sm3" id="ajout-commentaire">
-						<h2>Ajouter un message</h2>
-						{{ form_start(c1) }}
-						<label for="inputText" class="col-sm-6 col-form-label">Message</label>
-						<div class="col-sm-10">
-							{{ form_widget(c1.content,{'attr':{'class':'form-control'}}) }}
-						</div>
-						<br/>
-						<div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+					<div class="ibox-content">
+						<figure>
+							<iframe src="{{ Stream.url }}" frameborder="0" allowfullscreen="" data-aspectratio="0.8211764705882353" style="width: 523px; height: 429.475px;"></iframe>
+						</figure>
+						<script src="https://use.fontawesome.com/fe459689b4.js"></script>
 
-							{{ form_widget(c1.Envoyer,{'attr':{'class':'btn btn-primary'}}) }}
+						<button onclick=window.location.href="{{ path('show_stream',{"idStream" : Stream.idStream}) }}" type="button" class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>  Like</button>
+						<button onclick=window.location.href="{{ path('show_stream',{"idStream" : Stream.idStream}) }}" type="button" class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>  Dislike</button>
+
+					</div>
+					<div class="col-md-14">
+						<div class="ibox float-e-margins">
+							<div class="ibox-title">
+								<div class="single-video-author box mb-3">
+									<div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
+									<img class="img-fluid" src="{{ asset('assets/img/'~ Stream.idUser.photo) }}" alt="">
+									<p><a href="#"><strong>{{Stream.idUser.username}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"></span></p>
+									<small> <i class="fa fa-clock-o"></i>{{ Stream.createdAt |date }}</small>
+								</div>
+							</div>
+							<div class="ibox-content profile-content">
+								<h4><strong>Description</strong></h4>
+
+
+								<p>
+									Categorie :
+								<a href="#"><strong>{{Stream.categorie}}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"></span>
+
+								<br>
+									<br>
+									<small>Lorem ipsum dolor sit amet, et singulis eleifend concludaturque cum. Ne solet eleifend prodesset</small>
+									<br>
+									<br>
+									Lorem ipsum dolor sit amet, et singulis eleifend concludaturque cum. Ne solet eleifend prodesset sed. Iusto deleniti mandamus has ut,
+									vim ut omnium ponderum tractatos, oratio nostrud no mea. Dolorum assentior sed cu </p>
+								<div class="row m-t-md">
+									<div class="col-md-3">
+										<h5><strong>{{ Stream.nbrLike }}</strong> Likes</h5>
+									</div>
+									<div class="col-md-9">
+										<h5><strong>{{ Stream.nbrReport }}</strong> dislikes</h5>
+									</div>
+								</div>
+							</div>
 						</div>
-						{{ form_end(c1) }}
 					</div>
 				</div>
+
 			</div>
+
+
+			<div class="col-md-6">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>chat</h5>
+					</div>
+					<div class="ibox-content">
+						---- chat--------
+						<div class="col-md-9 ">
+							<div class="chat-discussion">
+								{% for chat in c %}
+									{% if chat.idUser == Stream.idUser %}
+
+										<div class="chat-message left">
+											<img class="message-avatar" src="{{ asset('assets/img/'~ chat.idUser.photo) }}" alt="">
+											<div class="message">
+												<a class="message-author" href="#"> {{ chat.idUser.username }} </a>
+												<span class="message-date"> Mon Jan 26 2015 - 18:39:23 </span>
+												<span class="message-content">
+                                                     {{	chat.content}}
+										</span>
+											</div>
+										</div>
+									{% else %}
+										<div class="chat-message right">
+											<img class="message-avatar" src="{{ asset('assets/img/'~ chat.idUser.photo) }}" alt="">
+											<div class="message">
+												<a class="message-author" href="#"> {{ chat.idUser.username }} </a>
+												<span class="message-date">  Fri Jan 25 2015 - 11:12:36 </span>
+												<span class="message-content">
+                                                     {{	chat.content}}
+										</span>
+											</div>
+										</div>
+									{% endif %}
+								{% endfor %}
+
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="chat-message-form">
+									{{ form_start(c1) }}
+									<label for="inputText" class="col-sm-6 col-form-label">Message</label>
+									<div class="col-sm-10">
+										{{ form_widget(c1.content,{'attr':{'class':'form-control'}}) }}
+									</div>
+									<br/>
+									<div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+										{{ form_widget(c1.Envoyer,{'attr':{'class':'btn btn-primary'}}) }}
+									</div>
+									{{ form_end(c1) }}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
+
 	</div>
+
+
+	<script type="text/javascript">
+        $(function() {
+            var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com'], object, embed"),
+                $fluidEl = $("figure");
+
+            $allVideos.each(function() {
+                $(this)
+                    // jQuery .data does not work on object/embed elements
+                    .attr('data-aspectRatio', this.height / this.width)
+                    .removeAttr('height')
+                    .removeAttr('width');
+            });
+            $(window).resize(function() {
+                var newWidth = $fluidEl.width();
+                $allVideos.each(function() {
+                    var $el = $(this);
+                    $el
+                        .width(newWidth)
+                        .height(newWidth * $el.attr('data-aspectRatio'));
+                });
+            }).resize();
+        });
+	</script>
+
+	</body>
 
 {% endblock %}
 

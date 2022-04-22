@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * Chat
  *
@@ -57,6 +56,9 @@ class Chat
      * })
      */
     private $idUser;
+
+
+
 
     public function getIdComment(): ?int
     {
@@ -111,6 +113,10 @@ class Chat
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return (string) $this->getIdUser();
+    }
 
 }
+

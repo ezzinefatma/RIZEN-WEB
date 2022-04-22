@@ -101,6 +101,7 @@ class Stream
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->idUser = "1";
     }
 
 

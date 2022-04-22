@@ -37,6 +37,7 @@ class ChatUserController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($chat);//Add
             $em->flush();

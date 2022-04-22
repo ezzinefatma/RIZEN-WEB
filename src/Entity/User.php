@@ -130,15 +130,6 @@ class User
      */
     private $idProduit;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idProd = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idProduit = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     public function getIdUser(): ?int
     {
         return $this->idUser;
