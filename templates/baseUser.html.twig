@@ -14,7 +14,22 @@
             <link rel="stylesheet" href="{{ asset('assetsUser/css/nice-select.css') }}" type="text/css">
             <link rel="stylesheet" href="{{ asset('assetsUser/css/owl.carousel.min.css') }}" type="text/css">
             <link rel="stylesheet" href="{{ asset('assetsUser/css/slicknav.min.css') }}" type="text/css">
-            <link rel="stylesheet" href="{{ asset('assetsUser/css/style.css') }}" type="text/css"> {% endblock %}
+            <link rel="stylesheet" href="{{ asset('assetsUser/css/style.css') }}" type="text/css">
+
+            <!-- CSS here -->
+            <link rel="stylesheet" href="{{ asset('assetss/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/animate.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/magnific-popup.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/fontawesome-all.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/odometer.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/aos.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/owl.carousel.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/meanmenu.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/slick.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/default.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assetss/css/responsive.css') }}">
+        {% endblock %}
 
         {% block javascripts %}
             <script src="{{ asset('assetsUser/js/jquery-3.3.1.min.js') }}"></script>
@@ -25,6 +40,27 @@
             <script src="{{ asset('assetsUser/js/jquery.slicknav.js') }}"></script>
             <script src="{{ asset('assetsUser/js/owl.carousel.min.js') }}"></script>
             <script src="{{ asset('assetsUser/js/main.js') }}"></script>
+            <!-- JS here -->
+            <script data-cfasync="false" src="{{ asset('assetss/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/vendor/jquery-3.4.1.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/popper.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/isotope.pkgd.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/slick.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.meanmenu.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/wow.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/aos.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.lettering.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.textillate.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.odometer.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.appear.js') }}"></script>
+            <script src="{{ asset('assetss/js/owl.carousel.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.countdown.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.scrollUp.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/imagesloaded.pkgd.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/jquery.magnific-popup.min.js') }}"></script>
+            <script src="{{ asset('assetss/js/plugins.js') }}"></script>
+            <script src="{{ asset('assetss/js/main.js') }}"></script>
         {% endblock %}
     </head>
     <body>
@@ -33,18 +69,18 @@
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <div class="header__logo">
                         <a href="./index.html">
-                            <img src="assetsUser/img/logo.png" alt="">
-                        </a>
+                            <img src="{{ asset('assetss/img/blog/logo.png') }}" alt=""> </a>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
+                                <li class="active"><a  href="{{ path('app_p') }}">Home page</a></li>
+
                                 <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <li><a href="./categories.html">Categories</a></li>
@@ -71,6 +107,18 @@
                 </div>
             </div>
             <div id="mobile-menu-wrap"></div>
+        </div>
+        <div class="header-action">
+            <ul>
+
+                <li class="header-shop-cart"><a  href="{{ path('index') }}"><i class="fas fa-shopping-basket"></i><span>0</span></a>
+
+
+                </li>
+
+
+            </ul>
+            </li>
         </div>
     </header>
     <!-- Header End -->

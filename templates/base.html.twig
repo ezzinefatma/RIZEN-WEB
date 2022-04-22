@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<header>
+    <nav class="navbar primary">
+        <div class="navbar-menu ml-auto">
+            <a class="navbar-link" href="#">Accueil</a>
+            <div class="dropdown" id="dropdown">
+                <a class="navbar-link dropdown-trigger">
+                    Catégories
+                </a>
+
+                </div>
+            </div>
+
+
+            <a class="navbar-link" href="#">Link 3</a>
+            <a class="navbar-link" href="#">Link 4</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block body %}{% endblock %}
+</main>
+
+<footer class="footer primary">
+</footer>
+
+
+
+
+{% block javascripts %}
+
+{% endblock %}
+
+</body>
+</html>

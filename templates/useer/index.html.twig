@@ -10,54 +10,1287 @@
 
 {% block body %}
 
+<style type="text/css">
+    /*-----------------------------------*\
+    #CUSTOM PROPERTY
+    \*-----------------------------------*/
 
+    :root {
+
+    /**
+    * colors
+    */
+
+    --raisin-black-1: hsl(234, 14%, 14%);
+    --raisin-black-2: hsl(231, 12%, 12%);
+    --raisin-black-3: hsl(228, 12%, 17%);
+    --eerie-black: hsl(240, 11%, 9%);
+    --light-gray: hsl(0, 0%, 80%);
+    --platinum: hsl(0, 4%, 91%);
+    --xiketic: hsl(275, 24%, 10%);
+    --orange: hsl(31, 100%, 51%);
+    --white: hsl(0, 0%, 100%);
+    --onyx: hsl(240, 5%, 26%);
+
+    /**
+    * typography
+    */
+
+    --ff-refault: "Refault", Georgia;
+    --ff-oswald: 'Oswald', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+
+    --fs-1: 54px;
+    --fs-2: 34px;
+    --fs-3: 30px;
+    --fs-4: 26px;
+    --fs-5: 22px;
+    --fs-6: 20px;
+    --fs-7: 18px;
+    --fs-8: 15px;
+    --fs-9: 14px;
+    --fs-10: 13px;
+    --fs-11: 12px;
+
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+
+    /**
+    * transition
+    */
+
+    --transition-1: 0.15s ease-in-out;
+    --transition-2: 0.15s ease-in;
+    --transition-3: 0.25s ease-out;
+
+    /**
+    * spacing
+    */
+
+    --section-padding: 60px;
+
+    /**
+    * clip path
+    */
+
+    --polygon-1: polygon(90% 0, 100% 34%, 100% 100%, 10% 100%, 0 66%, 0 0);
+    --polygon-2: polygon(0 0, 100% 0%, 82% 100%, 0% 100%);
+    --polygon-3: polygon(0 0, 100% 0%, 100% 100%, 18% 100%);
+    --polygon-4: polygon(96% 0, 100% 36%, 100% 100%, 4% 100%, 0 66%, 0 0);
+
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+    #RESET
+    \*-----------------------------------*/
+
+    *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    a { text-decoration: none; }
+
+    li { list-style: none; }
+
+    a,
+    img,
+    span,
+    input,
+    button,
+    ion-icon { display: block; }
+
+    button {
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    }
+
+    input {
+    font: inherit;
+    width: 100%;
+    border: none;
+    }
+
+    html {
+    font-family: var(--ff-poppins);
+    scroll-behavior: smooth;
+    }
+
+    body { overflow-x: hidden; }
+
+    body.active { overflow-y: hidden; }
+
+    ::-webkit-scrollbar { width: 8px; }
+
+    ::-webkit-scrollbar-track { background: var(--raisin-black-2); }
+
+    ::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 10px;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+    #CUSTOM FONT
+    \*-----------------------------------*/
+
+    /* Webfont: Refault-Italic */
+    @font-face {
+    font-family: 'Refault';
+    src: url('../fonts/REFAULT.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/REFAULT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/REFAULT.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/REFAULT.woff2') format('woff2'), /* Modern Browsers */
+    url('../fonts/REFAULT.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+    #REUSED STYLE
+    \*-----------------------------------*/
+
+    .container { padding-inline: 15px; }
+
+    .h1 {
+    color: var(--white);
+    font-family: var(--ff-refault);
+    font-size: var(--fs-1);
+    font-weight: var(--fw-400);
+    text-transform: uppercase;
+    }
+
+    .h2 {
+    font-size: var(--fs-2);
+    color: var(--white);
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-family: var(--ff-oswald);
+    }
+
+    .h3 {
+    font-family: var(--ff-oswald);
+    font-size: var(--fs-2);
+    text-transform: uppercase;
+    line-height: 1.2;
+    }
+
+    .btn {
+    color: var(--white);
+    font-family: var(--ff-oswald);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 34px;
+    clip-path: var(--polygon-1);
+    transition: var(--transition-1);
+    }
+
+    .btn-primary { background: var(--orange); }
+
+    .btn-primary:is(:hover, :focus) { background: var(--raisin-black-1); }
+
+    .btn-secondary {
+    background: var(--white);
+    color: var(--orange);
+    }
+
+    .btn-secondary:is(:hover, :focus) {
+    background: var(--raisin-black-1);
+    color: var(--white);
+    }
+
+    .btn-link:is(:hover, :focus) { color: var(--orange); }
+
+    .has-scrollbar::-webkit-scrollbar { height: 6px; }
+
+    .has-scrollbar::-webkit-scrollbar-button { width: 40px; }
+
+    .section-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+    }
+
+    .section-title::before,
+    .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+    width: 120px;
+    background: var(--orange);
+    border-radius: 0 0 5px 5px;
+    }
+
+    .section-title::before {
+    bottom: -23px;
+    height: 4px;
+    width: 30px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*-----------------------------------*\
+    #GALLERY
+    \*-----------------------------------*/
+
+    .gallery { padding: var(--section-padding) 0; }
+
+    .gallery-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin: -15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scroll-snap-type: inline mandatory;
+    padding-inline: 15px;
+    }
+
+    .gallery-list li {
+    min-width: 95%;
+    scroll-snap-align: center;
+    }
+
+    .gallery-item img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.2);
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+    #TEAM
+    \*-----------------------------------*/
+
+    .team { padding: var(--section-padding) 0; }
+
+    .team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 70px;
+    }
+
+    .team-list li { max-width: 40%; }
+
+    .team-member {
+    position: relative;
+    border-radius: 50%;
+    border: 3px solid var(--raisin-black-3);
+    transition: var(--transition-1);
+    }
+
+    .team-member:is(:hover, :focus) { border-color: var(--orange); }
+
+    .team-member img { width: 100%; }
+
+    .team-member:is(:hover, :focus) img { opacity: 0.5; }
+
+    .team-member ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--orange);
+    font-size: 50px;
+    transition: var(--transition-1);
+    opacity: 0;
+    }
+
+    .team-member:is(:hover, :focus) ion-icon { opacity: 1; }
+
+    .team .btn-primary { margin-inline: auto; }
+
+
+
+
+
+    /*-----------------------------------*\
+    #GEARS
+    \*-----------------------------------*/
+
+    .gears { padding: var(--section-padding) 0; }
+
+    .gears-list {
+    display: grid;
+    gap: 50px;
+    }
+
+    .gears-card .card-banner {
+    position: relative;
+    background: url("assets/images/gears-card-bg.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    aspect-ratio: 2 / 1.7;
+    display: grid;
+    place-items: center;
+    margin-bottom: 30px;
+    }
+
+    .gears .card-banner a { width: 100%; }
+
+    .gears .card-banner img {
+    width: 45%;
+    margin-inline: auto;
+    }
+
+    .share,
+    .card-time-wrapper {
+    position: absolute;
+    color: var(--orange);
+    }
+
+    .share {
+    top: 25%;
+    right: 8%;
+    font-size: 20px;
+    border: 2px solid var(--onyx);
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: var(--transition-1);
+    }
+
+    .share:is(:hover, :focus) { border-color: var(--orange); }
+
+    .card-time-wrapper {
+    top: 2%;
+    right: 5%;
+    font-family: var(--ff-oswald);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    }
+
+    .card-time-wrapper ion-icon {
+    font-size: 16px;
+    --ionicon-stroke-width: 50px;
+    }
+
+    .gears .card-content {
+    color: var(--white);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    }
+
+    .gears-card :is(.card-title, .card-prize) {
+    font-family: var(--ff-oswald);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-700);
+    }
+
+    .gears-card .card-title { margin-bottom: 5px; }
+
+    .gears-card .card-subtitle {
+    color: var(--light-gray);
+    font-size: var(--fs-8);
+    }
+
+    .gears .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    }
+
+    .gears-card .btn { padding: 18px 20px; }
+
+    .gears-card .btn-primary {
+    font-size: var(--fs-7);
+    padding-block: 15px;
+    }
+
+    .gears-card .btn-primary ion-icon {
+    font-size: 20px;
+    --ionicon-stroke-width: 80px;
+    }
+
+    .gears-card .card-btn {
+    --polygon-1: polygon(75% 0, 100% 25%, 100% 100%, 25% 100%, 0 75%, 0 0);
+
+    background: var(--raisin-black-1);
+    color: var(--orange);
+    }
+
+    .gears-card .card-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+    .gears-card .card-btn:is(:hover, :focus) {
+    background: var(--orange);
+    color: var(--white);
+    }
+
+
+
+
+
+
+
+
+
+
+    /*-----------------------------------*\
+    #RESPONSIVE
+    \*-----------------------------------*/
+
+    /**
+    * responsive larger than 420px
+    */
+
+    @media (min-width: 420px) {
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+    :root {
+
+    /**
+    * typography
+    */
+
+    --fs-1: 70px;
+
+    }
+
+    }
+
+
+
+
+
+    /**
+    * responsive larger than 575px
+    */
+
+    @media (min-width: 575px) {
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+    :root {
+
+    /**
+    * typography
+    */
+
+    --fs-1: 90px;
+    --fs-2: 45px;
+
+    }
+
+
+
+    /**
+    * REUSED STYLE
+    */
+
+    .container {
+    max-width: 540px;
+    margin-inline: auto;
+    }
+
+
+
+    /**
+    * ABOUT
+    */
+
+    .about-banner {
+    position: relative;
+    max-width: 410px;
+    margin-inline: auto;
+    z-index: 1;
+    }
+
+    .character-2 {
+    display: block;
+    position: absolute;
+    top: 120px;
+    left: 160px;
+    max-width: 150px;
+    z-index: -1;
+    }
+
+    .about-content { padding: 60px 40px; }
+
+
+
+    /**
+    * TOURNAMENT
+    */
+
+    .tournament-text {
+    max-width: 500px;
+    margin-inline: auto;
+    }
+
+
+
+    /**
+    * GALLERY
+    */
+
+    .gallery .container { max-width: unset; }
+
+    .gallery-list li { min-width: 80%; }
+
+    }
+
+
+
+
+
+    /**
+    * responsive larger than 768px
+    */
+
+    @media (min-width: 768px) {
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+    :root {
+
+    /**
+    * typography
+    */
+
+    --fs-1: 115px;
+    --fs-3: 36px;
+
+    }
+
+
+
+    /**
+    * REUSED STYLE
+    */
+
+
+
+
+
+
+    /**
+    * HEADER
+    */
+
+    .header::after,
+    .header::before {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 20px;
+    background: var(--raisin-black-1);
+    bottom: -17px;
+    }
+
+    .header::before {
+    left: 0;
+    clip-path: var(--polygon-2);
+    }
+
+    .header::after {
+    right: 0;
+    clip-path: var(--polygon-3);
+    }
+
+
+
+    /**
+    * HERO
+    */
+
+    .hero-subtitle {
+    --fs-7: 25px;
+    letter-spacing: 30px;
+    }
+
+
+
+    /**
+    * ABOUT
+    */
+
+    .about-banner { max-width: 430px; }
+
+    .character {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    }
+
+    .character-1 {
+    width: 130px;
+    top: 110px;
+    left: -120px;
+    }
+
+    .character-2 { left: 200px; }
+
+    .character-3 {
+    top: 0;
+    right: -112px;
+    }
+
+
+
+    /**
+    * GALLERY
+    */
+
+    .gallery-list { padding-bottom: 30px; }
+
+    .gallery-list li { min-width: 70%; }
+
+
+
+    /**
+    * GEARS
+    */
+
+    .gears-list { grid-template-columns: 1fr 1fr; }
+
+
+
+    /**
+    * NEWSLETTER
+    */
+
+    .newsletter-card { text-align: left; }
+
+    .newsletter-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 440px;
+    margin-inline: auto;
+    }
+
+    .newsletter-img { margin-inline: 0; }
+
+    .newsletter-form {
+    position: relative;
+    max-width: 530px;
+    margin-inline: auto;
+    }
+
+    .newsletter-form::after {
+    content: "";
+    position: absolute;
+    bottom: 9px;
+    left: -3px;
+    width: 27px;
+    height: 1px;
+    background: var(--white);
+    transform: rotate(43deg);
+    }
+
+    .newsletter .btn-secondary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    }
+
+    .newsletter .input-field {
+    clip-path: var(--polygon-4);
+    margin-bottom: 0;
+    }
+
+
+
+    /**
+    * FOOTER
+    */
+
+    .footer-menu-wrapper,
+    .footer-quicklinks,
+    .footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .footer-menu-list {
+    max-width: 50%;
+    justify-content: flex-start;
+    column-gap: 16px;
+    margin-bottom: 0;
+    }
+
+    .footer-input-wrapper {
+    margin-inline: 0;
+    width: 50%;
+    }
+
+    .quicklink-list {
+    margin-bottom: 0;
+    column-gap: 15px;
+    }
+
+    .copyright { margin-bottom: 0; }
+
+    }
+
+
+
+
+
+    /**
+    * responsive larger than 1024px
+    */
+
+    @media (min-width: 1024px) {
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+    :root {
+
+    /**
+    * spacing
+    */
+
+    --section-padding: 100px;
+
+    }
+
+
+
+    /**
+    * REUSED STYLE
+    */
+
+    .container { max-width: 1000px; }
+
+    .has-scrollbar::-webkit-scrollbar-button { width: 200px; }
+
+
+
+
+
+    /**
+    * GALLERY
+    */
+
+    .gallery-list {
+    gap: 30px;
+    padding-inline: 40px;
+    }
+
+    .gallery-list li { min-width: 50%; }
+
+
+
+    /**
+    * GEARS
+    */
+
+    .card-time-wrapper {
+    top: 4%;
+    right: 8%;
+    }
+
+
+
+    /**
+    * NEWSLETTER
+    */
+
+    .newsletter { padding-bottom: 200px; }
+
+    .newsletter-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 45px 50px;
+    }
+
+    .newsletter-content {
+    margin-inline: 0;
+    margin-bottom: 0;
+    }
+
+    .newsletter-img { padding-left: 30px; }
+
+    .newsletter-form { flex-grow: 1; }
+
+    .newsletter-form::after {
+    bottom: 9px;
+    left: -5px;
+    width: 25px;
+    transform: rotate(52deg);
+    }
+
+
+
+    /**
+    * FOOTER
+    */
+
+    .footer-brand-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .footer-top .logo {
+    margin-inline: 0;
+    margin-bottom: 0;
+    margin-right: 50px;
+    }
+
+    .footer-menu-wrapper { gap: 50px; }
+
+    .footer-menu-list {
+    flex-grow: 1;
+    max-width: unset;
+    }
+
+    }
+
+
+
+
+
+    /**
+    * responsive larger than 1200px
+    */
+
+    @media (min-width: 1200px) {
+
+        /**
+        * CUSTOM PROPERTY
+        */
+        :root {
+
+            /**
+            * typography
+            */
+
+            --fs-1: 150px;
+
+        }
+
+
+        /**
+        * REUSED STYLE
+        */
+        .container {
+            max-width: 1200px;
+        }
+
+
+        /**
+        * HEADER
+        */
+        .navbar-link {
+            padding-block: 45px;
+        }
+
+
+        /**
+        * HERO
+        */
+        .hero {
+            margin-top: 110px;
+        }
+
+
+        /**
+        * TEAM
+        */
+        .team-list {
+            gap: 20px;
+        }
+
+
+        /**
+        * GEARS
+        */
+        .gears-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card-time-wrapper {
+            top: 3.5%;
+            right: 7%;
+        }
+
+
+    }
+
+
+    </style>
+
+    <!-- JS here -->
+    <script data-cfasync="false" src="{{ asset('assetss/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/vendor/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/slick.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.meanmenu.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/aos.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.lettering.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.textillate.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.odometer.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.appear.js') }}"></script>
+    <script src="{{ asset('assetss/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assetss/js/plugins.js') }}"></script>
+    <script src="{{ asset('assetss/js/main.js') }}"></script>
+
+
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ asset('assetss/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/meanmenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetss/css/responsive.css') }}">
+    <div class="single-slider slider-bg slider-style-two" style="background-image: url(assetss/img/blog/gmn.jpg);">
 
     <div class="container">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
             {%  for produit in b  %}                <br/>
-                <div class="col">
-                    <div class="card shadow-sm">
 
-                        <img class="w-70" src="{{ asset('assets/img/'~ produit.imageProd) }}" alt="Image de {{ produit.marque }}">
-                        <br/>
-                        <div class="card-body ">
+                <br/>
+                <li>
+                    <div class="gears-card">
 
-                            <p class="card-text">{{  produit.marque}}</p>
-                            <p class="card-text">{{ produit.prix }} €</p>
-                            <p class="card-text">{{ produit.disponibilite }} </p>
+                        <div class="card-banner">
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <hr>
-                                    <a     href="{{ path('index',{'idProd':produit.idProd}) }}" class="btn btn-success">
-                                        <i class="bi bi-cart-plus"></i> Add Cart
-                                    </a>
-                                    <a     href="{{ path('show',{'idProd':produit.idProd}) }}" class="btn btn-success">
-                                        <i class="bi bi-"></i> view
-                                    </a>
-                                </div>
+                            <a href="#">
+                                <img src="{{ asset('assets/images/'~ produit.imageProd) }}" alt="Image de {{ produit.marque }}">
+
+                            </a>
+
+                            <button class="share">
+                                <ion-icon name="share-social"></ion-icon>
+                            </button>
+
+                            <div class="card-time-wrapper">
+                                <ion-icon name="time-outline"></ion-icon>
+
+                                <span>In 4 days</span>
                             </div>
 
                         </div>
 
+                        <div class="card-content">
+
+                            <div class="card-title-wrapper">
+
+                                <h3 class="h3 card-title">{{  produit.disponibilite}}</h3>
+
+                                <p class="card-subtitle">{{  produit.marque}}</p>
+
+                            </div>
+
+                            <p class="card-subtitle">{{ produit.prix }} €</p>
+
+                        </div>
+
+                        <div class="card-actions">
+
+
+
+                                <a class="btn  btn-dark" href="{{ path('addd',{'idProd':produit.idProd}) }}">
+                                    <span>Add to cart</span>
+                                </a>
+
+
+                                <a class="btn  btn-dark" href="{{ path('article_show',{'idProd':produit.idProd}) }}">
+                                    <span>SHOW</span>
+                                </a>
+                            <a href="{{ path('app_stars') }}"></a>
+
+
+
+
+                        </div>
+
                     </div>
-                    <br/>
-                </div>
-                <br/>
+                </li>
 
             {% endfor %}
         </div>
 
     </div>
 
+    <section class="gallery">
+        <div class="container">
 
+            <ul class="gallery-list has-scrollbar">
 
+                <li>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('./assets/images/gallery-img-1.jpg') }}" alt="Gallery image">
+                    </figure>
+                </li>
+
+                <li>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('./assets/images/gallery-img-2.jpg') }}" alt="Gallery image">
+                    </figure>
+                </li>
+
+                <li>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('./assets/images/gallery-img-3.jpg') }}" alt="Gallery image">
+                    </figure>
+                </li>
+
+                <li>
+                    <figure class="gallery-item">
+                        <img src="{{ asset('./assets/images/gallery-img-4.jpg') }}" alt="Gallery image">
+                    </figure>
+                </li>
+
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="gears" id="gears">
+        <div class="container">
+
+            <h2 class="h2 section-title">check our gears</h2>
+
+            <ul class="gears-list">
+
+                <li>
+                    <div class="gears-card">
+
+                        <div class="card-banner">
+
+                            <a href="#">
+                                <img src="./assets/images/gears-img-1.png" alt="Headphone">
+                            </a>
+
+                            <button class="share">
+                                <ion-icon name="share-social"></ion-icon>
+                            </button>
+
+                            <div class="card-time-wrapper">
+                                <ion-icon name="time-outline"></ion-icon>
+
+                                <span>Offer</span>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <div class="card-title-wrapper">
+
+                                <h3 class="h3 card-title">Headphone</h3>
+
+                                <p class="card-subtitle">e-sports</p>
+
+                            </div>
+
+                            <div class="card-prize">$18</div>
+
+                        </div>
+
+                        <div class="card-actions">
+
+                            <button class="btn btn-primary">
+                                <ion-icon name="add-outline"></ion-icon>
+
+                                <span>Add to cart</span>
+                            </button>
+
+                            <button class="btn card-btn">
+                                <ion-icon name="heart-outline"></ion-icon>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="gears-card">
+
+                        <div class="card-banner">
+
+                            <a href="#">
+                                <img src="./assets/images/gears-img-2.png" alt="Controller">
+                            </a>
+
+                            <button class="share">
+                                <ion-icon name="share-social"></ion-icon>
+                            </button>
+
+                            <div class="card-time-wrapper">
+                                <ion-icon name="time-outline"></ion-icon>
+
+                                <span>Promotion%</span>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <div class="card-title-wrapper">
+
+                                <h3 class="h3 card-title">Controller</h3>
+
+                                <p class="card-subtitle">e-sports</p>
+
+                            </div>
+
+                            <div class="card-prize">$29</div>
+
+                        </div>
+
+                        <div class="card-actions">
+
+                            <button class="btn btn-primary">
+                                <ion-icon name="add-outline"></ion-icon>
+
+                                <span>Add to cart</span>
+                            </button>
+
+                            <button class="btn card-btn">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="gears-card">
+
+                        <div class="card-banner">
+
+                            <a href="#">
+                                <img src="./assets/images/gears-img-3.png" alt="Gaming mask">
+                            </a>
+
+                            <button class="share">
+                                <ion-icon name="share-social"></ion-icon>
+                            </button>
+
+                            <div class="card-time-wrapper">
+                                <ion-icon name="time-outline"></ion-icon>
+
+                                <span>In 4 days</span>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <div class="card-title-wrapper">
+
+                                <h3 class="h3 card-title">Gaming mask</h3>
+
+                                <p class="card-subtitle">e-sports</p>
+
+                            </div>
+
+                            <div class="card-prize">$45</div>
+
+                        </div>
+
+                        <div class="card-actions">
+
+                            <button class="btn btn-primary">
+                                <ion-icon name="add-outline"></ion-icon>
+
+                                <span>Add to cart</span>
+                            </button>
+
+                            <button class="btn card-btn">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
 {% endblock %}
-
-
-
-
 
 
 

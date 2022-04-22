@@ -72,7 +72,18 @@ class PaymentController extends AbstractController
 
     }
 
+    /**
+     * @Route("/statistiques", name="app_statistiques")
+     */
+    public function indexx( )
+    {
 
+
+        return $this->render('statistiques/index.html.twig',[
+
+
+        ]);
+    }
 }
 
 

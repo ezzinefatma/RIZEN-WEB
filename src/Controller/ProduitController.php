@@ -11,6 +11,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProduitController extends AbstractController
 {
+
+
+
+
+    /**
+     * @Route("/show/{idProd}", name="article_show")
+     * @param Produit Produit
+     * @return Response
+     */
+    public function show(Produit $produit): Response
+    {
+        return $this->render("base1.html.twig", [
+            "produit" => $produit
+        ]);
+    }
+
     /**
      * @Route("/", name="app_produit")
      */
@@ -91,6 +107,17 @@ class ProduitController extends AbstractController
 
 
 
+    }
+    /**
+     * @Route("/all", name="a_produit")
+     */
+    public function inde(): Response
+    {
+
+        $produit = $this->getDoctrine()->getManager()->getRepository(Produit::class)->findAll();
+        return $this->render('base1.html.twig', [
+            'h'=>$produit
+        ]);
     }
 
 }

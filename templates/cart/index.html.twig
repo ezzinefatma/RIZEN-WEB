@@ -1,34 +1,43 @@
-{% extends 'baseuser.html.twig'  %}
-
-{% block title %} Hello CartController!
-{% endblock %}
-
+{% extends 'baseUser.html.twig' %}
+{% block title %}Votre panier{% endblock %}
 {% block body %}
-    <section class="bg-light p-7">
-        <h1>Votre panier</h1>
-
+    <div class="single-slider slider-bg slider-style-two" style="background-image: url(assetss/img/blog/geming.jpg);">
+    <h1>Votre panier</h1>
     <table class="table">
         <thead>
-
         <tr>
-            <th>libelle</th>
-            <th>Prix</th>
-            <th>quantie</th>
-
-
-
-            <th>Total</th>
-            <th>Actions</th>
-
+            <th><h4>Produit</h4></th>
+            <th> <h4>Prix</h4></th>
+            <th><h4>Quantité</h4></th>
+            <th><h4>Total</h4></th>
+            <th><h4>Actions</h4></th>
         </tr>
         </thead>
+        <tbody>
+        {% for element in dataPanier %}
+            <a href="{{ path('addPayment') }}"> Payment </a>
+            <tr> <td><h4>{{ element.produit.marque }}</h4></td>
+                <td class="text-end"><h4>{{ element.produit.prix }} €</h4></td>
+                <td><h4>{{ element.quantite }}</h4></td>
+                <td class="text-end"><h4>{{ element.quantite * element.produit.prix }} €</h4></td>
+                <td> <a href="{{path("addd", {idProd: element.produit.idProd})}} ">
+                        <span><h3>+</h3></span>
+                        </a>
+                 <a href="{{path("remove", {idProd: element.produit.idProd})}}" >
+                     <span><h3>-</h3></span>
+                       </a>
+                    <a href="{{path("delete", {idProd: element.produit.idProd})}}">
 
-    <tbody>
+                        <i class="far fa-trash-alt"></i>
 
-
-    </tbody>
-
-
-    </table>
-    </section>
+                    </a> </a> </td> </tr>
+        {% else %}
+            <tr>
+                <td colspan="5" class="text-center"><h4>Votre panier est vide</h4></td>
+            </tr> {% endfor %} </tbody> <tfoot> <tr> <td colspan="3">
+                <h1>Total</h1></td>
+            <td class="text-end">
+                <h1>{{ total }} €</h1></td>
+            <td> <a href="{{path("delete_all")}}"> <i class="far fa-trash-alt"></i> </a> </td>
+        </tr> </tfoot> </table>
 {% endblock %}

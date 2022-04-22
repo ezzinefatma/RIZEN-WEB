@@ -5,6 +5,9 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+
+
+    <script src="{{ asset('js/scripts.js') }}"></script>
     {% block stylesheets %}
 
 
@@ -53,7 +56,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <span class="d-none d-lg-block">Nice Admin</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -287,7 +290,7 @@
             <li class="nav-item">
                 <a class="nav-link " href="index.html">
                     <i class="bi bi-grid"></i>
-                    <span> </span>
+                    <a href="{{ path('app_addmin') }}"><span>Dashboord</span>  </a>
                 </a>
             </li><!-- End Dashboard Nav -->
 
@@ -446,6 +449,10 @@
     <footer id="footer" class="footer">
 
     </footer><!-- End Footer -->
+
 {% endblock %}
+
+
 </body>
+
 </html>
