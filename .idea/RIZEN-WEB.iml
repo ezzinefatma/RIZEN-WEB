@@ -133,6 +133,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/collections" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/endroid/qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/endroid/qr-code-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/endroid/installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dasprid/enum" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

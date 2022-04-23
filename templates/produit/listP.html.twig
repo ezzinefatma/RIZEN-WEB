@@ -1,0 +1,43 @@
+
+{% block body %}
+
+
+                <h1 align="center" >Liste des Produit</h1>
+                <table class="table dataTable-condensed">
+                    <thead>
+                    <tr>
+                        <th>categorie</th>
+                        <th>libelle</th>
+                        <th>marque</th>
+                        <th>prix</th>
+                        <th>description</th>
+
+                        <th>disponibilite</th>
+                        <th>note</th>
+                        <th>quantite</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for produit in b %}
+                        <tr>
+                            <td>{{ produit.categorieProd }}</td>
+                            <td>{{ produit.libelle }}</td>
+                            <td>{{ produit.marque }}</td>
+                            <td>{{ produit.prix }}</td>
+                            <td>{{ produit.descriptionProd }}</td>
+                            <td>{{ produit.disponibilite }}</td>
+                            <td>{{ produit.note }}</td>
+                            <td>{{ produit.quantite }}</td>
+
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

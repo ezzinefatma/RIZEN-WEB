@@ -36,6 +36,18 @@ class PaymentController extends AbstractController
 
     }
 
+
+    /**
+     * @Route("/factur/{numfac}", name="aff_paymentuser")
+     * @param Facture Facture
+     * @return Response
+     */
+    public function show(Facture $facture): Response
+    {
+        return $this->render('payment/affichage.html.twig', [
+            'b'=>$facture
+        ]);
+    }
     /**
      * @Route("/factur", name="aff_paymentuser")
      */
