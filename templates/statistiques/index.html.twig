@@ -1,5 +1,3 @@
-
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Statistiques{% endblock %}
@@ -11,30 +9,78 @@
 {% block body %}
     <div class="container">
         <h1>Statistiques</h1>
-        <canvas Numfac="factures" width="400" height="100"></canvas>
-
+        <canvas id="produit" width="400" height="100"></canvas>
+        <canvas id="promotion" width="400" height="100"></canvas>
 
 
     </div>
-
-
 {% endblock %}
 
 {% block javascripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-<script>
-    let factures = document.querySelector("#factures")
-    let facGraph = new Chart(factures, {
-        type: "pie",
-        data: {
-            labels: ["cat1","cat2","cat3"],
-            datasets: [{
-                label: "Répartition des catégories",
-                data:[2,5,3] ,
-                backgroundColor: ["red","green","bleu"]
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script>
+        let categories = document.querySelector("#produit")
 
-            }]
-        }
-    })
-</script>
-    {% endblock %}
+        let categGraph = new Chart(produit,  {
+
+                type: "pie",
+                data: {
+                    labels:"",
+
+                    datasets:[
+                        {
+                        label:["produit"],
+                        data:{{ proIdprod|raw }} ,
+                            backgroundColor: ["red"],
+
+                    },
+
+                        {
+                            label:["produit"],
+
+                            data:{{ proIdprom|raw }} ,
+                            backgroundColor: ["green"],
+                        }
+
+]
+
+
+
+
+
+
+
+                }
+
+
+            }
+
+
+          )
+       /* let promotion = document.querySelector("#promotion")
+        let produit = document.querySelector("#produit")
+        let pGraph = new Chart(promotion,produit, {
+            type: "line",
+            data: {
+                labels: ["produit"],
+                datasets: [{
+                    label: "Nombre promotion",
+                    data:{{ proIdprod|raw }},
+                    backgroundColor:["red"],
+
+                }]
+            },
+
+                labels:["promotion"],
+                datasets: [{
+                    label: "Nombre promotion",
+                    data:{{ proIdprom|raw }},
+                    backgroundColor:["green"],
+
+                }]
+               })
+
+
+*/
+    </script>
+{% endblock %}

@@ -159,9 +159,16 @@ class ProduitController extends AbstractController
     }
 
 
-
-
-
-
+    /**
+     * @Route("/nombre", name="countStudent")
+     * @return Response
+     */
+    public function countStudent(){
+        $number = $this->getDoctrine ()
+            ->getRepository( Produit::class)
+            ->number0fProduit ();
+        return $this->render( 'statistiques/statistique.html.twig',
+            ['nombre' => $number]);
+}
 
 }
