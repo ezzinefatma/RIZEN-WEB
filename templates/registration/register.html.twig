@@ -1,0 +1,120 @@
+{% extends 'baseUser.html.twig'  %}
+{% block body %}
+    <!-- Login Section Begin -->
+    <section class="login spad">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-left align-items-left h-100">
+                <div class="login__form">
+                    <h3>Sign Up</h3>
+                    {{ form_start(f,{"attr":{'novalidate':'novalidate' }}) }}
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Last Name </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.nomUser,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.nomUser,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> First Name </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.prenomUser,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.prenomUser,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Gender </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.genre,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.genre,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Age </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.age,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.age,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Phone </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.numeroTel,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.numeroTel,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Adress </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.adresse,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.adresse,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Username </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.username,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.username,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+                    <label for="inputText" class="col-sm-4 col-form-label"> Email </label>
+                    <div class="col-12">
+
+                        {{form_widget(f.email,{'attr':{'class':'form-control'}})}}
+                        {{form_errors(f.email,{'attr':{'class':'text-danger'}})}}
+                    </div>
+
+
+                    <div class="col-12">
+                        <label for="yourPassword" class="form-label">Password</label>
+                        {{ form_widget(f.password.first,{'attr':{'class':'form-control'}}) }}
+                        <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="yourPassword" class="form-label">Confirm Password</label>
+                        {{ form_widget(f.password.second,{'attr':{'class':'form-control'}}) }}
+                        <div class="invalid-feedback">Please confirm your password!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required="">
+                            <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                            <div class="invalid-feedback">You must agree before submitting.</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                    </div>
+
+
+
+                    {{ form_end(f) }}
+
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row d-flex justify-content-right align-items-right h-100">
+                        <div class="login__register">
+                            <h3>You already have an Account ?</h3>
+                            <a href="{{ path('login') }}" class="primary-btn">Login</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Login Section End -->
+
+{% endblock %}

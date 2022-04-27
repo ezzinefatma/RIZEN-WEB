@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Event
 {
+
+
     /**
      * @var int
      *
@@ -69,6 +71,10 @@ class Event
      * @ORM\Column(name="type_event", type="string", length=0, nullable=false)
      */
     private $typeEvent;
+
+
+
+
 
 
 }

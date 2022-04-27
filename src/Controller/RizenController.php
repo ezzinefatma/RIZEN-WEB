@@ -26,7 +26,7 @@ class RizenController extends AbstractController
      */
     public function indexAdmin(): Response
     {
-        return $this->render('admin/index.html.twig');
+        return $this->render('BackEnd/index.html.twig');
     }
 
             /**
@@ -38,26 +38,4 @@ class RizenController extends AbstractController
     }
 
 
-            /**
-     * @Route("/AddWallet", name="AddWallet")
-     */
-   /* public function AddWallet(Request $request): Response
-    {
-        $wallet=new Wallet();
-        $form=$this->createForm(EtudiantType::class,$wallet);
-        $form->handleRequest($request);
-        if($form->isValid())
-        {
-            $niveau=$wallet->getNiveau();
-            $em=$this->getDoctrine();
-            $array_projets=$em->getRepository(CostaProjet::class)->findByNiveau($niveau);
-            $em->getManager()->persist($wallet);
-            $em->getManager()->flush();
-            return $this->redirectToRoute('creer');
-        }
-        return $this->render('@Costa\deEtudiantCorrect\creer.html.twig', array(
-            'form'=>$form->createView()
-        ));
-
-    }*/
 }
