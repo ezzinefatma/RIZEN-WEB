@@ -43,7 +43,7 @@ class Publication
     private $datePub = 'CURRENT_TIMESTAMP';
 
     /**
-     * @ORM\Column(name="image", type="string")
+     * @ORM\Column(name="image", type="string", nullable=false)
      * @Assert\NotBlank(message="please upload image")
      * @Assert\File(mimeTypes={"image/jpeg"})
      */
