@@ -7,28 +7,148 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
 
         {% block stylesheets %}
-             <link rel="stylesheet" href="assetsUser/css/bootstrap.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/font-awesome.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/elegant-icons.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/plyr.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/nice-select.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/owl.carousel.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/slicknav.min.css" type="text/css">
-             <link rel="stylesheet" href="assetsUser/css/style.css" type="text/css">
+             <link rel="stylesheet" href="{{ '/assetsUser/css/bootstrap.min.css' }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/font-awesome.min.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/elegant-icons.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/plyr.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/nice-select.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/owl.carousel.min.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/slicknav.min.css" }}" type="text/css">
+             <link rel="stylesheet" href="{{ "/assetsUser/css/style.css" }}" type="text/css">
         {% endblock %}
 
         {% block javascripts %}
-          <script src="assetsUser/js/jquery-3.3.1.min.js"></script>
-          <script src="assetsUser/js/bootstrap.min.js"></script>
-          <script src="assetsUser/js/player.js"></script>
-          <script src="assetsUser/js/jquery.nice-select.min.js"></script>
-          <script src="assetsUser/js/mixitup.min.js"></script>
-          <script src="assetsUser/js/jquery.slicknav.js"></script>
-          <script src="assetsUser/js/owl.carousel.min.js"></script>
-          <script src="assetsUser/js/main.js"></script>
+          <script src="{{ "/assetsUser/js/jquery-3.3.1.min.js" }}"></script>
+          <script src="{{ "/assetsUser/js/bootstrap.min.js" }}"></script>
+          <script src="{{ "/assetsUser/js/player.js" }}"></script>
+          <script src="{{ "/assetsUser/js/jquery.nice-select.min.js" }}"></script>
+          <script src="{{ "/assetsUser/js/mixitup.min.js" }}"></script>
+          <script src="{{ "/assetsUser/js/jquery.slicknav.js" }}"></script>
+          <script src="{{ "/assetsUser/js/owl.carousel.min.js" }}"></script>
+          <script src="{{ "/assetsUser/js/main.js"}}"></script>
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="./index.html">
+                                <img src="/assetsUser/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="header__nav">
+                            <nav class="header__menu mobile-menu">
+                                <ul>
+                                    <li class="active"><a href="./index.html">Homepage</a></li>
+                                    <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                                        <ul class="dropdown">
+                                            <li><a href="./categories.html">Categories</a></li>
+                                            <li><a href="./anime-details.html">Anime Details</a></li>
+                                            <li><a href="./anime-watching.html">Anime Watching</a></li>
+                                            <li><a href="./blog-details.html">Blog Details</a></li>
+                                            <li><a href="./signup.html">Sign Up</a></li>
+                                            <li><a href="./login.html">Login</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./blog.html">Our Blog</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="header__right">
+                            <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                            <a href="./login.html"><span class="icon_profile"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__slider owl-carousel">
+                    <div class="hero__items set-bg" data-setbg="{{asset('/assetsUser/img/hero/hero-1.jpg')}}">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <div class="label">Adventure</div>
+                                    <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                    <p>After 30 days of travel across the world...</p>
+                                    <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__items set-bg" data-setbg="/assetsUser/img/hero/hero-1.jpg">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <div class="label">Adventure</div>
+                                    <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                    <p>After 30 days of travel across the world...</p>
+                                    <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="hero__text">
+                                    <div class="label">Adventure</div>
+                                    <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                    <p>After 30 days of travel across the world...</p>
+                                    <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <body>
+    {%block body%}
+    {%endblock%}
+
     </body>
+{%block footer%}
+    <footer class="footer">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer__logo">
+                        <a href="#"><img src="/assetsUser/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer__nav">
+                        <ul>
+                            <li class="active"><a href="#">Homepage</a></li>
+                            <li><a href="#">Categories</a></li>
+                            <li><a href="#">Our Blog</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved   by <a href="https://esprit.tn" target="_blank">ESPRIT</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+{%endblock%}
+
+
+
+
 </html>

@@ -1,0 +1,43 @@
+{% extends 'baseadmin.html.twig'%}
+{%block body%}
+    <div class="card">
+        <div class="card-body">
+            <h4>{{ comments|length  }} Comment(s)</h4>
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">CONTENT</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for c in comments %}
+                    <tr>
+
+                        <td>{{c.idCom}}</td>
+                        <td>{{c.username}}</td>
+                        <td >{{c.email}}</td>
+                        <td>{{c.dateCom|date('Y-M-d')}}</td>
+                        <td> <h4>{{ c.contentCom }}</h4></td>
+
+
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+{%endblock%}
+
+

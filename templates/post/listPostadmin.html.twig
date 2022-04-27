@@ -1,0 +1,45 @@
+
+
+    <div class="card">
+<h1> List of All posts</h1>
+        <div class="card-body">
+            <br/>
+            <table border >
+                <thead>
+                <tr>
+                    <th>Post ID</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Date</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                {%for p in listpost%}
+                    <tr>
+
+                        <td>{{p.idPub}}</td>
+                        <td>{{p.titlePub}}</td>
+                        <td >{{p.contentPub}}</td>
+                        <td>{{p.datePub|date('y-m-d a h:m:s')}}</td>
+
+
+
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+
+
+        </div>
+    </div>
+
+
+

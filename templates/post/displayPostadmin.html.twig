@@ -1,0 +1,63 @@
+{% extends 'baseadmin.html.twig'%}
+
+{%block body%}
+<div class="card">
+    <input type="search" placeholder="Search..." class="form-control search-input" data-table="customers-list"/>
+    <br/>
+    <div class="card-body">
+
+        <table class="table table-striped mt32 customers-list">
+            <thead>
+            <tr>
+                <th>Post ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+                    {%for p in listpost%}
+                        <tr>
+
+                            <td>{{p.idPub}}</td>
+                            <td>{{p.titlePub}}</td>
+                            <td >{{p.contentPub}}</td>
+                            <td>{{p.datePub|date('y-m-d a h:m:s')}}</td>
+                            <td><img src="{{ asset('../../uploads/' ~ p.image) }}" width="100"></td>
+                            <td>
+                                <a href="{{ url('delete_post',{'id': p.idPub}) }}" >Erase</a>
+                                <a href="{{ url('edit_post',{'id': p.idPub}) }}" >Edit</a>
+                                <a href="{{ url('commentbyPost',{'id': p.idPub}) }}" >Comments</a>
+
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+
+            </tbody>
+
+                    </table>
+        <div class="navigation">
+            {{ knp_pagination_render(listpost) }}
+        </div>
+        <a href="{{ url('all_post') }}" >Imprimer pdf</a>
+
+
+
+    </div>
+</div>
+    <div class="navigation">
+        {{ knp_pagination_render(listpost) }}
+    </div>
+{%endblock%}
+
+
+
+
+
+

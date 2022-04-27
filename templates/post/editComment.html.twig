@@ -1,0 +1,29 @@
+{% extends 'baseadmin.html.twig'%}
+{%block body%}
+    <div class="card">
+        <div class="card-body">
+            <div class="blog__details__form">
+
+                <h4>Edit Commentt</h4>
+                <form method="POST" action="{{ url('edit_comment',{'id': id}) }}" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input type="text" placeholder="Name" name="input_name" value="{{comment.username}}">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <input type="text" placeholder="Email" name="input_email" value="{{comment.email}}">
+                        </div>
+                        <div class="col-lg-12">
+                            <textarea placeholder="Message" name="input_content"></textarea>
+                            <button type="submit" class="site-btn">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+{%endblock%}
+
+

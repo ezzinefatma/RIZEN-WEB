@@ -1,0 +1,56 @@
+{% extends 'baseadmin.html.twig'%}
+{%block body%}
+    <div class="card">
+        <div class="card-body">
+            <h4>{{ comments|length  }} Comment(s)</h4>
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">CONTENT</th>
+                    <th scope="col">Approuve</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for c in comments %}
+                    <tr>
+
+                        <td>{{c.idCom}}</td>
+                        <td>{{c.username}}</td>
+                        <td >{{c.email}}</td>
+                        <td>{{c.dateCom|date('Y-M-d')}}</td>
+                        <td> <h4>{{ c.contentCom }}</h4></td>
+                        <td>
+                            {%if c.approuve!=1%}
+                            <a href="{{ url('approuve-comment',{'id': c.idCom}) }}" >Approuve</a>
+                            {%endif%}
+                            {%if c.approuve==1%}
+                                <span> Approuvé </span>
+                            {%endif%}
+
+
+                        </td>
+
+                        <td>  <a href="{{ url('delete_Comment',{'id': c.idCom}) }}" >Delete</a>
+                        <td>  <a href="{{ url('edit_comment',{'id': c.idCom}) }}" >Update</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+{%endblock%}
+
+
