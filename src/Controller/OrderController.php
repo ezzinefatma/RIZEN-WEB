@@ -37,9 +37,8 @@ class OrderController extends AbstractController
             $em->persist($order);//Add
             $em->flush();
 
-            return $this->redirectToRoute('app_order');
         }
-        return $this->render('order/index.html.twig', ['f' => $form->createView()]);
+        return $this->render('commande/index.html.twig', ['f' => $form->createView()]);
 
     }
 }

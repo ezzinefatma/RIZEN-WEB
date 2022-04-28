@@ -1,86 +1,135 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}Statistiques{% endblock %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous">
-{% endblock %}
+
 
 {% block body %}
-    <div class="container">
-        <h1>Statistiques</h1>
-        <canvas id="produit" width="400" height="100"></canvas>
-        <canvas id="promotion" width="400" height="100"></canvas>
 
+
+    <div class="row" style="display:flex;align-items:center;justify-content:center;margin-top:150px;padding: 20px;">
+
+
+    <section class="section">
+        <div class="row">
+
+
+            <div class="row" style="display:flex;align-items:center;justify-content:center;margin-top:10px;padding: 10px;">
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Radar Chart</h5>
+
+                        <!-- Radar Chart -->
+                        <div id="radarChart" style="min-height: 300px;" class="echart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                echarts.init(document.querySelector("#radarChart")).setOption({
+                                    legend: {
+                                        data: ['Allocated Budget', 'Actual Spending']
+                                    },
+                                    radar: {
+                                        // shape: 'circle',
+                                        indicator: [{
+                                            name: 'Sales',
+                                            max: 50
+                                        },
+                                            {
+                                                name: 'Administration',
+                                                max: 50
+                                            },
+                                            {
+                                                name: 'Information Technology',
+                                                max: 50
+                                            },
+                                            {
+                                                name: 'Customer Support',
+                                                max: 50
+                                            },
+                                            {
+                                                name: 'Development',
+                                                max: 50
+                                            },
+                                            {
+                                                name: 'Marketing',
+                                                max: 50
+                                            }
+                                        ]
+                                    },
+                                    series: [{
+                                        name: 'Budget vs spending',
+                                        type: 'radar',
+                                        data: [{
+                                            value: [{{ proSum|raw }}, {{ proSumq|raw }}, {{ proSump|raw }}, {{ proSumqp|raw }},{{ proIdprom|raw }}],
+                                            name: 'Allocated Budget'
+                                        },
+                                            {
+                                                value: [{{ proIdprom|raw }}, {{ pross|raw }}, {{ proIdprom|raw }}, {{ proIdprom|raw }}, {{ proIdprom|raw }}, {{ proIdprom|raw }}],
+                                                name: 'Actual Spending'
+                                            }
+                                        ]
+                                    }]
+                                });
+                            });
+                        </script>
+                        <!-- End Radar Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+                <div class="row" style="display:flex;align-items:center;justify-content:center;margin-top:10px;padding: 10px;">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Polar Area Chart</h5>
+
+                        <!-- Polar Area Chart -->
+                        <div id="polarAreaChart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#polarAreaChart"), {
+                                    series: [1,2,{{ proSump|raw }}, {{ proSumqp|raw }}],
+                                    chart: {
+                                        type: 'polarArea',
+                                        height: 350,
+                                        toolbar: {
+                                            show: true
+                                        }
+                                    },
+                                    stroke: {
+                                        colors: ['#fff']
+                                    },
+                                    fill: {
+                                        opacity: 0.8
+                                    },
+                                    labels: ['produit', 'promotion', 'facture', 'prix'],
+
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Polar Area Chart -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        </div>
+    </section>
 
     </div>
-{% endblock %}
-
-{% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-    <script>
-        let categories = document.querySelector("#produit")
-
-        let categGraph = new Chart(produit,  {
-
-                type: "pie",
-                data: {
-                    labels:"",
-
-                    datasets:[
-                        {
-                        label:["produit"],
-                        data:{{ proIdprod|raw }} ,
-                            backgroundColor: ["red"],
-
-                    },
-
-                        {
-                            label:["produit"],
-
-                            data:{{ proIdprom|raw }} ,
-                            backgroundColor: ["green"],
-                        }
-
-]
 
 
 
 
 
 
-
-                }
-
-
-            }
-
-
-          )
-       /* let promotion = document.querySelector("#promotion")
-        let produit = document.querySelector("#produit")
-        let pGraph = new Chart(promotion,produit, {
-            type: "line",
-            data: {
-                labels: ["produit"],
-                datasets: [{
-                    label: "Nombre promotion",
-                    data:{{ proIdprod|raw }},
-                    backgroundColor:["red"],
-
-                }]
-            },
-
-                labels:["promotion"],
-                datasets: [{
-                    label: "Nombre promotion",
-                    data:{{ proIdprom|raw }},
-                    backgroundColor:["green"],
-
-                }]
-               })
-
-
-*/
-    </script>
 {% endblock %}

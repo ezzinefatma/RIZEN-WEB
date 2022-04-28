@@ -1,0 +1,239 @@
+<!doctype html>
+{% block body %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Geco - eSports Gaming HTML5 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+
+</head>
+<body>
+
+<!-- preloader -->
+<!-- preloader-end -->
+
+<!-- header-area -->
+<!-- header-area-end -->
+
+<!-- main-area -->
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content text-center">
+                        <h2>COMMANDER <span>PRODUIT</span></h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- contact-area -->
+    <section class="contact-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <iframe src="https://maps.google.com/maps?&q= {{addressGps}}&output=embed "
+                            width="100%" height="400"
+                    ></iframe>
+
+
+                </div>
+
+                <div class="col-lg-6 pl-45">
+
+
+                    <div class="contact-form">
+
+
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Your telephone">
+                                </div>
+                                <form action="#" method="post" >
+                                <div class="col-md-6">
+
+                                        <span class="text-base font-bold text-gray-700">Votre address</span>
+                                        <input type="name" id="address" name="address" autocomplete="address"
+                                               class="block w-full px-3 py-2 mt-1 text-gray-700 border rounded-md form-input focus:border-indigo-600"
+                                               required />
+                                    <div class="col-md-6">
+                                        <button type="submit" name="submit"
+                                        >Générer    </button>
+                                    </div>
+                                </div>
+
+                                </form>
+
+
+                            <button>commande</button>
+                     </div>
+                    </div>
+                </div>
+            </div>
+            </div
+             </div>
+    </section>
+    <!-- contact-area-end -->
+
+
+
+
+
+</main>
+<!-- main-area-end -->
+
+
+
+
+<!-- footer-area -->
+<footer>
+    <div class="footer-top footer-bg s-footer-bg">
+        <!-- newsletter-area -->
+        <div class="newsletter-area s-newsletter-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="newsletter-wrap">
+                            <div class="section-title newsletter-title">
+                            </div>
+                            <div class="newsletter-form">
+                                <form action="#">
+                                    <div class="newsletter-form-grp">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- newsletter-area-end -->
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="footer-widget mb-50">
+                        <div class="footer-logo mb-35">
+                            <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                        </div>
+                        <div class="footer-text">
+                            <div class="footer-contact">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-sm-6">
+                    <div class="footer-widget mb-50">
+                        <div class="fw-title mb-35">
+                        </div>
+                        <div class="fw-link">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-sm-6">
+                    <div class="footer-widget mb-50">
+                        <div class="fw-title mb-35">
+                        </div>
+                        <div class="fw-link">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="footer-widget mb-50">
+                        <div class="fw-title mb-35">
+                        </div>
+                        <div class="footer-social">
+
+                        </div>
+                    </div>
+                    <div class="footer-widget mb-50">
+                        <div class="fw-title mb-35">
+                        </div>
+                        <div class="footer-newsletter">
+                            <form action="#">
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-fire"><img src="assetss/img/images/footer_fire.png" alt=""></div>
+        <div class="footer-fire footer-fire-right"><img src="assetss/img/images/footer_fire.png" alt=""></div>
+    </div>
+    <div class="copyright-wrap s-copyright-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="copyright-text">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 d-none d-md-block">
+                    <div class="payment-method-img text-right">
+                        <img src="img/images/card_img.png" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer-area-end -->
+<!-- JS here -->
+<script src="{{ asset('assetss/js/vendor/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('assetss/js/popper.min.js') }}"></script>
+<script src="{{ asset('assetss/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assetss/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assetss/js/slick.min.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.meanmenu.min.js') }}"></script>
+<script src="{{ asset('assetss/js/wow.min.js') }}"></script>
+<script src="{{ asset('assetss/js/aos.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.lettering.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.textillate.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.odometer.min.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.appear.js') }}"></script>
+<script src="{{ asset('assetss/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.scrollUp.min.js') }}"></script>
+<script src="{{ asset('assetss/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('assetss/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assetss/js/plugins.js') }}"></script>
+<script src="{{ asset('assetss/js/main.js') }}"></script>
+
+
+
+<!-- CSS here -->
+<link rel="stylesheet" href="{{ asset('assetss/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/animate.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/fontawesome-all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/odometer.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/meanmenu.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/slick.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/default.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assetss/css/responsive.css') }}">
+
+<!-- JS here -->
+
+
+</script>
+</body>
+{% endblock %}

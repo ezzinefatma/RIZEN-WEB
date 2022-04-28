@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PromotinController extends AbstractController
+class PromotionController extends AbstractController
 {
     /**
      * @Route("/add", name="app_promotion")

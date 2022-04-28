@@ -61,7 +61,22 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $produit->getImageProd();
+            $fileName = md5 (uniqid()).'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $fileName
+
+);
+} catch (FileException $e) {
+
+            }
+
             $em = $this->getDoctrine()->getManager();
+            $produit->setImageProd($fileName);
             $em->persist($produit);//Add
             $em->flush();
 
@@ -169,6 +184,6 @@ class ProduitController extends AbstractController
             ->number0fProduit ();
         return $this->render( 'statistiques/statistique.html.twig',
             ['nombre' => $number]);
-}
+    }
 
 }

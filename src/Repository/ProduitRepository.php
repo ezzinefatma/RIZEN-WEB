@@ -35,6 +35,36 @@ class ProduitRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * Returns number of "Produit"
+     * @return void
+     */
+
+    public function SUMPrixproduit()
+    {
+
+        $query = $this->createQueryBuilder('a')
+            ->select('SUM(a.prix) as suum');
+
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * Returns number of "Produit"
+     * @return void
+     */
+
+    public function SUMquantiteproduit()
+    {
+
+        $query = $this->createQueryBuilder('a')
+
+            ->select('SUM(a.quantite) as suumq');
+
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Categories[] Returns an array of Categories objects
     //  */

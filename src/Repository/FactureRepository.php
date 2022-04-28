@@ -1,53 +1,67 @@
 <?php
 
 namespace App\Repository;
-
-
-
-use App\Entity\Promotion;
+use App\Entity\Facture;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 /**
- * @method Promotion|null find($id, $lockMode = null, $lockVersion = null)
- * @method Promotion|null findOneBy(array $criteria, array $orderBy = null)
- * @method Promotion[]    findAll()
- * @method Promotion[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Facture|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Facture|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Facture[]    findAll()
+ * @method Facture[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PromotionRepository extends ServiceEntityRepository
+
+class FactureRepository extends  ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    public function __construct(ManagerRegistry  $registry)
     {
-        parent::__construct($registry, Promotion::class);
+        parent::__construct($registry, Facture::class);
     }
 
+
+    /**
+     * Returns number of "Facture"
+     * @return void
+     */
+
+    public function number0fFacture()
+    {
+
+        $query = $this->createQueryBuilder('a')
+            ->select('COUNT(a) as countee');
+
+        return $query->getQuery()->getResult();
+    }
+    /**
+     * Returns number of "Promotion"
+     * @return void
+     */
+
+    public function SUMprixfactur()
+    {
+
+        $query = $this->createQueryBuilder('a')
+            ->select('SUM(a.prixtot) as suump');
+
+
+        return $query->getQuery()->getResult();
+    }
 
     /**
      * Returns number of "Promotion"
      * @return void
      */
 
-    public function number0fPromotion()
+    public function SUMquantitefacture()
     {
 
         $query = $this->createQueryBuilder('a')
-            ->select('COUNT(a) as counte ');
+
+            ->select('SUM(a.quantite) as su');
 
         return $query->getQuery()->getResult();
     }
-
-
-    public function SUMprixprom()
-    {
-
-        $query = $this->createQueryBuilder('a')
-            ->select('SUM(a.tauxReduction) as off');
-
-
-        return $query->getQuery()->getResult();
-    }
-
-
 
     // /**
     //  * @return Categories[] Returns an array of Categories objects

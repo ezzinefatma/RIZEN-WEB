@@ -130,10 +130,11 @@ class Produit
      * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     private $quantite;
-    public function __toString()
+    public function __toString(): string
     {
-        return (string) $this->getIdProd();
+        return (string)$this->getIdProd();
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
@@ -230,12 +231,12 @@ class Produit
         return $this;
     }
 
-    public function getImageProd(): ?string
+    public function getImageProd()
     {
         return $this->imageProd;
     }
 
-    public function setImageProd(string $imageProd): self
+    public function setImageProd( $imageProd)
     {
         $this->imageProd = $imageProd;
 
@@ -328,6 +329,7 @@ class Produit
 
         return $this;
     }
+
 
 
 }

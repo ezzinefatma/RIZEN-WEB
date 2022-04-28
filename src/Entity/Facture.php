@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Facture
  *
  * @ORM\Table(name="facture", indexes={@ORM\Index(name="id_prod", columns={"id_prod"}), @ORM\Index(name="id_wallet", columns={"id_wallet"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=FactureRepository::class)
  */
 class Facture
 {

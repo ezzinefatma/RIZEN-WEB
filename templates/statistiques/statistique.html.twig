@@ -1,3 +1,186 @@
-{% block body %}
-    {{ nombre }}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+
+
+
+    <!-- Vendor CSS Files -->
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin - v2.2.2
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+
+
+
+
+
+
+    <section class="section">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Line Chart</h5>
+
+                        <!-- Line Chart -->
+                        <div id="lineChart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#lineChart"), {
+                                    series: [{
+                                        name: "Desktops",
+                                        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                                    }],
+                                    chart: {
+                                        height: 350,
+                                        type: 'line',
+                                        zoom: {
+                                            enabled: false
+                                        }
+                                    },
+                                    dataLabels: {
+                                        enabled: false
+                                    },
+                                    stroke: {
+                                        curve: 'straight'
+                                    },
+                                    grid: {
+                                        row: {
+                                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                            opacity: 0.5
+                                        },
+                                    },
+                                    xaxis: {
+                                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                                    }
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Line Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Polar Area Chart</h5>
+
+                        <!-- Polar Area Chart -->
+                        <div id="polarAreaChart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#polarAreaChart"), {
+                                    series: [{{ proIdprod|raw }}, {{ proSum|raw }} ],
+                                    chart: {
+                                        type: 'polarArea',
+                                        height: 350,
+                                        toolbar: {
+                                            show: true
+                                        }
+                                    },
+                                    stroke: {
+                                        colors: ['#fff']
+                                    },
+                                    fill: {
+                                        opacity: 0.8
+                                    },
+                                    labels: ['produit', 'promotion', 'facture',],
+
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Polar Area Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Radial Bar Chart</h5>
+
+                        <!-- Radial Bar Chart -->
+                        <div id="radialBarChart"></div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                new ApexCharts(document.querySelector("#radialBarChart"), {
+                                    series: [{{ proIdprom|raw }}, {{ proIdprod|raw }}, {{ pronumfac|raw }}, 83],
+                                    chart: {
+                                        height: 350,
+                                        type: 'radialBar',
+                                        toolbar: {
+                                            show: true
+                                        }
+                                    },
+                                    plotOptions: {
+                                        radialBar: {
+                                            dataLabels: {
+                                                name: {
+                                                    fontSize: '22px',
+                                                },
+                                                value: {
+                                                    fontSize: '16px',
+                                                },
+
+                                            }
+                                        }
+                                    },
+                                    labels: ['produit', 'promotion', 'facture', 'Berries'],
+                                }).render();
+                            });
+                        </script>
+                        <!-- End Radial Bar Chart -->
+
+                    </div>
+                </div>
+            </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

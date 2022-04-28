@@ -56,6 +56,10 @@ class Promotion
      * })
      */
     private $idProd;
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return (string) $this->getIdProm();
