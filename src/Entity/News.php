@@ -36,47 +36,47 @@ class News
     private $contenuNews;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="date_news", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="date_news", type="string", nullable=false , length=255)
      */
-    private $dateNews = 'CURRENT_TIMESTAMP';
+    private $dateNews ;
 
-    public function getIdNews(): ?int
+    public function getidNews(): ?int
     {
         return $this->idNews;
     }
 
-    public function getTitreNews(): ?string
+    public function gettitreNews(): ?string
     {
         return $this->titreNews;
     }
 
-    public function setTitreNews(string $titreNews): self
+    public function settitreNews(string $titreNews): self
     {
         $this->titreNews = $titreNews;
 
         return $this;
     }
 
-    public function getContenuNews(): ?string
+    public function getcontenuNews(): ?string
     {
         return $this->contenuNews;
     }
 
-    public function setContenuNews(string $contenuNews): self
+    public function setcontenuNews(string $contenuNews): self
     {
         $this->contenuNews = $contenuNews;
 
         return $this;
     }
 
-    public function getDateNews(): ?\DateTimeInterface
+    public function getdateNews(): ?string
     {
         return $this->dateNews;
     }
 
-    public function setDateNews(\DateTimeInterface $dateNews): self
+    public function setdateNews(string $dateNews): self
     {
         $this->dateNews = $dateNews;
 

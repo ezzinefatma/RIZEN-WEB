@@ -97,8 +97,49 @@
    {% block bodyy %}
 
 
-       {% endblock %}
+   {% endblock %}
+    <div class="btn radius btn-outline cursor-pointer" onclick="lancerExempleNotif()">Lancez l'exemple complet</div>
 
+    <script type="text/javascript">
+        function lancerExempleNotif() {
+            console.log("Lancement de l'exemple");
+
+            /* Vérifier que l'objet existe */
+            if (typeof Notification === undefined) {
+                console.log("Notification n'est pas un objet connu");
+                return false;
+            }
+
+            /* Tester si la permission a déjà été donnée */
+            if (Notification.permission=="granted") {
+                console.log("Permission déjà accordée");
+                lancerNotif();
+            } else {
+                Notification.requestPermission(function(result) {
+                    console.log("Vous avez choisi "+result);
+                    if (result=="granted") {
+                        lancerNotif();
+                    }
+                });
+            }
+        }
+
+        function lancerNotif() {
+            var options={
+                "lang":"FR",
+                "icon":"/favicon.ico",
+                "tag": new Date(),
+                "body": "Ceci est la notification de TJS de l'exemple de la référence"
+            };
+            var notif=new Notification("Notification TJS", options);
+
+            notif.onclick = function(event) {
+                event.preventDefault();
+                window.open("http://www.toutjavascript.com/reference", "_blank");
+            }
+        }
+
+    </script>
 
 <!-- Footer Section Begin -->
 <footer class="footer">

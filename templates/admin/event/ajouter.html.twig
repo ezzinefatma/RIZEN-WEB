@@ -31,11 +31,18 @@
                     {{ form_errors(f.dateFin,{'attr':{'class':'text-danger'}}) }}
 
 
-                    <label for="inputText" class="col-sm-4 col-form-label">Image</label>
-                    <div class="col-sm-10">
-                        {{ form_widget(f.imageEvent,{'attr':{'class':'form-control'}}) }}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">image produit</label>
+                        {{ form_widget(f.imageEvent) }}
+
                     </div>
-                    {{ form_errors(f.imageEvent,{'attr':{'class':'text-danger'}}) }}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">image produit</label>
+
+                        <input class="form-control" type="file" id="formFile">
+
+                    </div>
+
 
 
                     <label for="inputText" class="col-sm-4 col-form-label">description</label>
@@ -59,10 +66,13 @@
                     </div>
                     {{ form_errors(f.typeEvent,{'attr':{'class':'text-danger'}}) }}
                     <br/>
+                    <input type="hidden" value="" id="fill">
                     <div class="col-sm-10" >
-                        {{ form_widget(f.Ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                        {{ form_widget(f.Envoyer,{'attr':{'class':'btn btn-primary'}}) }}
 
                     </div>
+                    <br/>
+
 
                     {{ form_end(f) }}
 

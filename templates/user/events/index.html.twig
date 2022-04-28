@@ -1,50 +1,70 @@
 {% extends 'user/index.html.twig' %}
 
-{%  block title%}Hello EventController!{% endblock %}
-
 {% block bodyy %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <script type="text/javascript">
+        function lancerExempleNotif() {
 
-<div class="example-wrapper">
-    <table class="table table-striped" border="2">
-        <thead> liste de evenement
-        <tr>
-            <th> Id event</th>
-            <th> Titre event</th>
-            <th> Date debut</th>
-            <th> Date fin</th>
-            <th> Image</th>
-            <th> Description event</th>
-            <th> Capacity</th>
-            <th> Type</th>
-            <th> Modification</th>
-            <th> Suppression</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for event in b %}
-            <tr>
-                <td>{{event.idEvent}}</td>
-                <td>{{event.titreEvent}}</td>
-                <td>{{event.dateDebut}}</td>
-                <td>{{event.dateFin}}</td>
-                <td>{{event.imageEvent}}</td>
-                <td>{{event.dateDebut}}</td>
-                <td>{{event.capacite}}</td>
-                <td>{{event.typeEvent}}</td>
-                <td>
+            if (typeof Notification === undefined) {
+                console.log("Notification n'est pas un objet connu");
+                return false;
+            }
 
-                </td>
-                <td>
-                </td>
-            </tr>
+            /* Tester si la permission a déjà été donnée */
+            if (Notification.permission=="granted") {
+                console.log("Permission déjà accordée");
+                lancerNotif();
+            } else {
+                Notification.requestPermission(function(result) {
+                    console.log("Vous avez choisi "+result);
+                    if (result=="granted") {
+                        lancerNotif();
+                    }
+                });
+            }
+        }
 
+        function lancerNotif() {
+            var options={
+                "lang":"FR",
+                "icon":"/favicon.ico",
+                "tag": new Date(),
+                "body": "Merci pour votre inscription un courrier électronique vous sera envoyé plus tard."
+            };
+            var notif=new Notification("Notification ", options);
+
+            notif.onclick = function(event) {
+                event.preventDefault();
+            }
+        }
+
+    </script>
+    <div class="example-wrapper">
+        {% for event in c %}
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="product__item">
+                <div class="product__item__pic set-bg" >
+          <img src=''{{ event.imageEvent }}>
+
+                </div>
+                <div class="product__item__text">
+                    <ul>
+                        <li>{{ event.dateDebut }}</li>
+                        <li>{{ event.dateFin }}</li>
+                    </ul>
+                    <h5><a href="#">{{ event.descriptionEvent }}</a></h5>
+                    <div class="product__item__pic set-bg">
+                    <div class="ep">{{ event.capacite }}</div>
+                    </div>
+                    <a href="{{ path('/SendMail/users') }}" ><span>Iscription</span> <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
 
-        </tbody>
-    </table>
-</div>
+
+    </div>
 {% endblock %}

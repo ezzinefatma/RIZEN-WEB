@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Event;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +20,7 @@ class EventType extends AbstractType
             ->add('titreEvent')
             ->add('dateDebut')
             ->add('dateFin')
-            ->add('imageEvent', FileType::class , array('data_class' => null))
+            ->add('imageEvent', HiddenType::class)
             ->add('descriptionEvent')
             ->add('capacite')
             ->add('typeEvent',ChoiceType::class ,
@@ -31,14 +33,14 @@ class EventType extends AbstractType
                         ],
 
                 ])
-            ->add('Ajouter',SubmitType::class)
+            ->add('Envoyer',SubmitType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Event::class,
         ]);
     }
 }

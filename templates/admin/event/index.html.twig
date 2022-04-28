@@ -31,14 +31,16 @@
                 <td>{{event.titreEvent}}</td>
                 <td>{{event.dateDebut}}</td>
                 <td>{{event.dateFin}}</td>
-                <td>{{event.imageEvent}}</td>
+                <td><img src="{{ asset(event.imageEvent) }}" width="50" height="50"></td>
                 <td>{{event.dateDebut}}</td>
                 <td>{{event.capacite}}</td>
                 <td>{{event.typeEvent}}</td>
                 <td>
-
+                   <a class="btn btn-success" href="{{ path('ModijierEvent',{'idEvent':event.idEvent}) }}"> Modifier</a>
                 </td>
                 <td>
+                    <a class="btn btn-success" href="{{ path('DeleteEvent',{'idEvent':event.idEvent}) }}"> Supprimer</a>
+
                 </td>
             </tr>
 

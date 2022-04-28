@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RIZEN-WEB.iml" filepath="$PROJECT_DIR$/.idea/RIZEN-WEB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Test/.idea/Test.iml" filepath="$PROJECT_DIR$/../Test/.idea/Test.iml" />
     </modules>
   </component>
 </project>

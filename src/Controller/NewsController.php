@@ -13,14 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends AbstractController
 {
+
     /**
-     * @Route("/display_news", name="display_news")
+     * @Route("/news", name="display_news")
      */
     public function index(): Response
     {
         $news = $this->getDoctrine()->getManager()->getRepository(news::class)->findAll();
-        return $this->render('admin/news/index.html.twig',['b'=>$news]);
+        return $this->render('admin/news/index.html.twig',['n'=>$news]);
     }
+
+
     /**
      * @Route("/AjouterNews", name="AjouterNews")
      */
@@ -28,7 +31,7 @@ class NewsController extends AbstractController
     {
 
         $news = new News();
-        $form = $this->createForm(NewsType::class);
+        $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
@@ -38,31 +41,35 @@ class NewsController extends AbstractController
         }
         return $this->render('admin/news/ajouter.html.twig',['f'=>$form->createView()]);
     }
+
     /**
-     * @Route("/delete/{idEvent}", name="deleteNews")
+     * @Route("/DeleteNews/{idNews}", name="DeleteNews")
      */
-    public function deleteNews($idNews)
+    public function DeleteNews(news  $news): Response
     {
-        $news = $this->getDoctrine()->getRepository(news::class)->find($idNews);
         $em = $this->getDoctrine()->getManager();
         $em->remove($news);
         $em->flush();
-        return $this->redirectToRoute("display_news");
-    }
-    /**
-     * @Route("/modifierNews/{idNews} ", name="modifierNews")
-     */
-    public function modifierNews(Request $request,$idNews): Response
-    {
+        return $this->redirectToRoute('display_news');
 
-        $news = $this->getDoctrine()->getManager()->getRepository(event::class)->find($idNews);
-        $form = $this->createForm(EventType::class, $news);
+
+    }
+
+    /**
+     * @Route("/ModifierNews/{idNews}", name="ModifierNews")
+     */
+
+    public function ModifierNews(Request $request ,$idNews):Response
+    {
+        $news = $this->getDoctrine()->getManager()->getRepository(news::class)->find($idNews);
+        $form = $this->createForm(NewsType::class,$news);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted()&& $form->isValid()){
+
             $em = $this->getDoctrine()->getManager();
             $em->flush();
             return $this->redirectToRoute("display_news");
         }
-        return $this->render('admin/news/update.html.twig',['f'=>$form->createView()]);
+        return $this->render("admin/news/update.html.twig",['f'=>$form->createView()]);
     }
 }

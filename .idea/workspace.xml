@@ -2,16 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d632cf92-d9c3-415c-840d-6bdd66402096" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RIZEN-WEB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RIZEN-WEB.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/event/ajouter.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/event/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/event/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EventType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NewsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/ajouter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/event/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/event/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/news/ajouter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/news/ajouter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/news/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/news/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/news/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/news/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/events/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/events/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/news/ajouter.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/news/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/news/update.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/newss/ajouter.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/newss/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/news/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/newss/update.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +36,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -163,6 +181,9 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -179,7 +200,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.postfix.templates" />
@@ -216,7 +237,10 @@
       <workItem from="1649809731395" duration="16161000" />
       <workItem from="1649854170740" duration="2789000" />
       <workItem from="1649922705108" duration="19896000" />
-      <workItem from="1649995328925" duration="4225000" />
+      <workItem from="1649995328925" duration="6903000" />
+      <workItem from="1650403145578" duration="14039000" />
+      <workItem from="1650543468938" duration="45215000" />
+      <workItem from="1651052308792" duration="4174000" />
     </task>
     <servers />
   </component>
