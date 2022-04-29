@@ -29,7 +29,18 @@ class EventController extends AbstractController
     /**
      * @Route("/users", name="display_eventss")
      */
-    public function afficherUser(Request $request , \Swift_Mailer $mailer): Response
+    public function afficherUser(Request $request ): Response
+    {
+        $events = $this->getDoctrine()->getManager()->getRepository(event::class)->findAll();
+
+        return $this->render('user/events/index.html.twig',['c'=>$events]);
+
+    }
+
+    /**
+     * @Route("/AFFICHER", name="AFFICHER")
+     */
+    public function afficherUser2(Request $request ): Response
     {
         $events = $this->getDoctrine()->getManager()->getRepository(event::class)->findAll();
 
@@ -47,11 +58,16 @@ class EventController extends AbstractController
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+
+            $file = $event->getImageEvent();
+            $fileName = md5 (uniqid()).'.'.$file->guessExtension();
+
             $em = $this->getDoctrine()->getManager();
-            $image = "front/images/".$event->getImageEvent();
-            $event->setImageEvent($image);
+            $event->setImageEvent($fileName);
+
             $em->persist($event);
             $em->flush();
+
             return $this->redirectToRoute("display_events");
         }
         return $this->render('admin/event/ajouter.html.twig',['f'=>$form->createView()]);

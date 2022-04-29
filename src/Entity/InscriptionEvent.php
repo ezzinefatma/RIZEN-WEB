@@ -21,12 +21,6 @@ class InscriptionEvent
      */
     private $id;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_ins", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
-     */
-    private $dateIns = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \Event
@@ -36,7 +30,7 @@ class InscriptionEvent
      *   @ORM\JoinColumn(name="id_event", referencedColumnName="id_event")
      * })
      */
-    private $idEvent;
+    private $idEvent ;
 
     /**
      * @var \User
@@ -48,29 +42,32 @@ class InscriptionEvent
      */
     private $idUsr;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $DateInc;
+
+    /**
+     * @param $DateInc
+     */
+    public function __construct()
+    {
+        $this->DateInc = new \DateTime();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDateIns(): ?\DateTimeInterface
-    {
-        return $this->dateIns;
-    }
-
-    public function setDateIns(\DateTimeInterface $dateIns): self
-    {
-        $this->dateIns = $dateIns;
-
-        return $this;
-    }
 
     public function getIdEvent(): ?Event
     {
         return $this->idEvent;
     }
 
-    public function setIdEvent(?Event $idEvent): self
+    public function setIdEvent( $idEvent)
     {
         $this->idEvent = $idEvent;
 
@@ -82,11 +79,28 @@ class InscriptionEvent
         return $this->idUsr;
     }
 
-    public function setIdUsr(?User $idUsr): self
+    public function setIdUsr( $idUsr)
     {
         $this->idUsr = $idUsr;
 
         return $this;
+    }
+
+    public function getDateInc(): ?\DateTimeInterface
+    {
+        return $this->DateInc;
+    }
+
+    public function setDateInc(\DateTimeInterface $DateInc): self
+    {
+        $this->DateInc = $DateInc;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getIdEvent();
     }
 
 

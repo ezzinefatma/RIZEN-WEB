@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Event
  *
  * @ORM\Table(name="event")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  */
 class Event
 {
@@ -46,6 +47,8 @@ class Event
      * @var string
      *
      * @ORM\Column(name="image_event", type="string", length=255, nullable=false)
+     *@Assert\NotBlank (message="Please upload image")
+     *@Assert\File(mimeTypes={"image/jpeg"})
      */
     private $imageEvent;
 
@@ -111,12 +114,12 @@ class Event
         return $this;
     }
 
-    public function getImageEvent(): ?string
+    public function getImageEvent()
     {
         return $this->imageEvent;
     }
 
-    public function setImageEvent(string $imageEvent): self
+    public function setImageEvent( $imageEvent)
     {
         $this->imageEvent = $imageEvent;
 

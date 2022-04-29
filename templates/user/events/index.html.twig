@@ -5,66 +5,53 @@
         .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
-    <script type="text/javascript">
-        function lancerExempleNotif() {
 
-            if (typeof Notification === undefined) {
-                console.log("Notification n'est pas un objet connu");
-                return false;
-            }
 
-            /* Tester si la permission a déjà été donnée */
-            if (Notification.permission=="granted") {
-                console.log("Permission déjà accordée");
-                lancerNotif();
-            } else {
-                Notification.requestPermission(function(result) {
-                    console.log("Vous avez choisi "+result);
-                    if (result=="granted") {
-                        lancerNotif();
-                    }
-                });
-            }
-        }
 
-        function lancerNotif() {
-            var options={
-                "lang":"FR",
-                "icon":"/favicon.ico",
-                "tag": new Date(),
-                "body": "Merci pour votre inscription un courrier électronique vous sera envoyé plus tard."
-            };
-            var notif=new Notification("Notification ", options);
 
-            notif.onclick = function(event) {
-                event.preventDefault();
-            }
-        }
 
-    </script>
-    <div class="example-wrapper">
-        {% for event in c %}
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" >
-          <img src=''{{ event.imageEvent }}>
+    <div class="container">
 
-                </div>
-                <div class="product__item__text">
-                    <ul>
-                        <li>{{ event.dateDebut }}</li>
-                        <li>{{ event.dateFin }}</li>
-                    </ul>
-                    <h5><a href="#">{{ event.descriptionEvent }}</a></h5>
-                    <div class="product__item__pic set-bg">
-                    <div class="ep">{{ event.capacite }}</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for event in c %}          <br/>
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <br/>
+                        <div class="card-body ">
+                            <div class="product__item__pic set-bg" >
+
+                                <a href="#">
+                                    <img src="{{ asset('assets/img/'~ event.imageEvent) }}" alt=""  style="height: 200px;width: 250px
+">
+
+                                </a>
+
+                            </div>
+                            <ul>
+                                <li>{{ event.dateDebut }}</li>
+                                <li>{{ event.dateFin }}</li>
+                                <li>{{ event.descriptionEvent }}</li>
+                                <li>{{ event.capacite }}</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+
+
+                                    <a href="{{ path('app_inscription_event') }}" ><span>Iscription</span> <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <a href="{{ path('/SendMail/users') }}" ><span>Iscription</span> <i class="fa fa-angle-right"></i></a>
+                    <br/>
                 </div>
-            </div>
-        </div>
-        {% endfor %}
+                <br/>
 
+            {% endfor %}
+        </div>
 
     </div>
+
 {% endblock %}

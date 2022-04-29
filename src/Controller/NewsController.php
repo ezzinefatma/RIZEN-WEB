@@ -72,4 +72,16 @@ class NewsController extends AbstractController
         }
         return $this->render("admin/news/update.html.twig",['f'=>$form->createView()]);
     }
+
+
+    /**
+     * @Route("/userss", name="display_newss")
+     */
+    public function afficherUser( ): Response
+    {
+
+        $news = $this->getDoctrine()->getManager()->getRepository(news::class)->findAll();
+        return $this->render('user/news/index.html.twig',['n'=>$news]);
+
+    }
 }
