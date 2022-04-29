@@ -79,7 +79,7 @@ class PostController extends AbstractController
                     $this->getParameter('uploads_directory'),$fileName
                 );
                 $post->setImage($fileName);
-                var_dump("movii");
+
             }
             catch(FileException $e){}
             try{
@@ -111,7 +111,7 @@ class PostController extends AbstractController
             // Define the page parameter
             $request->query->getInt('page', 1),
             // Items per page
-            2
+            4
         );
         return $this->render("post/displayPostadmin.html.twig",[
             'listpost' =>$listpost
